@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     Planner *planner = new Planner();
     planner->setMap(map);
 
-    planner->setNumSamples(10);
+    planner->setNumSamples(40);
 
     // Set the start and goal
     std::vector<int> start = {0, 0};
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
     planner->plan(start, goal, path);
 
     // print the graph
-    planner->printGraph();
+    // planner->printGraph();
 
     // print the path
     std::cout << "PATH: " << std::endl;

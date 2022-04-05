@@ -24,6 +24,6 @@ if __name__ == "__main__":
                 output.write('0')
         output.write("\n")
     output.write("\n")
-    
+    output.close()
     print("Done writing to file")
 
