@@ -21,7 +21,8 @@ typedef struct {
 } vertex_property_t;
 
 typedef struct {
-    int weight;
+    int distance;
+    int direction;
 } edge_property_t;
 
 #define ADJACENCY_LIST
@@ -58,6 +59,7 @@ private:
     Map *map_;
     Graph graph_;
     int numSamples_;
+    double dist_threshold_;
     
     int generationPhase();
     int connectionPhase();

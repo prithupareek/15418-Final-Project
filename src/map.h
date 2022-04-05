@@ -4,6 +4,10 @@
 
 #include <vector>
 
+#define CANT_CONNECT    0
+#define CONNECT_VERT    1
+#define CONNECT_HORIZ  -1
+
 class Map
 {
     public:
@@ -14,6 +18,8 @@ class Map
         int getWidth();
         int getHeight();
         bool isFree(int x, int y);
+        double getDistance(int x1, int y1, int x2, int y2);
+        int canConnect(int x1, int y1, int x2, int y2);
 
         // print the map for debuging
         void print();

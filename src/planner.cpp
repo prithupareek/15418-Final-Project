@@ -15,6 +15,7 @@ Planner::Planner()
     // this->graph_ = NULL;
     this->numSamples_ = 0;
     srand(time(0));
+    this->dist_threshold_ = 5.0;
 }
 
 Planner::Planner(Map *map)
@@ -42,6 +43,11 @@ void Planner::printGraph()
     for (auto vd : boost::make_iterator_range(vertices(this->graph_)))
     {
         std::cout << "Vertex: " << this->graph_[vd].x << "," << this->graph_[vd].y << std::endl;
+    }
+
+    for (auto ed : boost::make_iterator_range(edges(this->graph_)))
+    {
+        std::cout << "Edge: " << source(ed, this->graph_) << "," << target(ed, this->graph_) << std::endl;
     }
 }
 
@@ -105,6 +111,45 @@ int Planner::generationPhase()
 
 int Planner::connectionPhase()
 {
+    // For each vertex, connect vertex to its k closest neighbors
+    for (auto vd : boost::make_iterator_range(vertices(this->graph_)))
+    {  
+        // find a list of k closest vertices
+        std::vector<vertex_t> k_closest_vertices;
+
+        for (auto vd2 : boost::make_iterator_range(vertices(this->graph_)))
+        {
+            if (vd == vd2)
+            {
+                continue;
+            }
+            vertex_property_t vp1 = this->graph_[vd];
+            vertex_property_t vp2 = this->graph_[vd2];
+            double distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
+            if (distance < this->dist_threshold_)
+            {
+                k_closest_vertices.push_back(vd2);
+            }
+        }
+
+        // for each vertex in list
+        for (auto vd2 : k_closest_vertices)
+        {
+            // check for a collision free edge between the two vertices
+            vertex_property_t vp1 = this->graph_[vd];
+            vertex_property_t vp2 = this->graph_[vd2];
+
+            int direction = this->map_->canConnect(vp1.x, vp1.y, vp2.x, vp2.y);
+
+            if (direction != CANT_CONNECT)
+            {
+                edge_t e = boost::add_edge(vd, vd2, this->graph_).first;
+                this->graph_[e].distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
+                this->graph_[e].direction = direction;
+            }
+        }
+    }
+
     return 0;
 }
 

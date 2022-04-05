@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
     // Initialize the map
     Map *map = new Map();
-    map->load("../maps/basic_10x10.txt", 10, 10);
+    map->load("../maps/no_connections_10x10.txt", 10, 10);
     // map->print();
 
     // Initialize the planner

@@ -1,6 +1,7 @@
 #include "map.h"
 #include <iostream>
 #include <fstream>
+#include <math.h>
 
 #define FREE 0
 #define OCCUPIED 1
@@ -61,4 +62,69 @@ void Map::print()
         }
         std::cout << std::endl;
     }
+}
+
+// Manhattan Distance
+double Map::getDistance(int x1, int y1, int x2, int y2)
+{
+    return abs(x1 - x2) + abs(y1 - y2);
+}
+
+// NOTE - Assumes that the start and goal are valid
+int Map::canConnect(int x1, int y1, int x2, int y2)
+{
+    // check for collision free straight line path
+    // between the two points
+    int stepX = (x2 > x1) ? 1 : -1;
+    int stepY = (y2 > y1) ? 1 : -1;
+
+    // Check horizontal
+    bool horizontal_works = true;
+    for (int x = x1; x != x2; x += stepX)
+    {
+        if (!this->isFree(x, y1)) {
+            horizontal_works = false;
+            break; 
+        }
+    }
+    if (horizontal_works)
+    {
+        for (int y = y1; y != y2; y += stepY)
+        {
+            if (!this->isFree(x2, y)) {
+                horizontal_works = false;
+                break; 
+            }
+        }
+    }
+    if (horizontal_works)
+    {
+        return CONNECT_HORIZ;
+    }
+
+    // Check vertical
+    bool vertical_works = true;
+    for (int y = y1; y != y2; y += stepY)
+    {
+        if (!this->isFree(x1, y)) {
+            vertical_works = false;
+            break; 
+        }
+    }
+    if (vertical_works)
+    {
+        for (int x = x1; x != x2; x += stepX)
+        {
+            if (!this->isFree(x, y2)) {
+                vertical_works = false;
+                break; 
+            }
+        }
+    }
+    if (vertical_works)
+    {
+        return CONNECT_VERT;
+    }
+
+    return CANT_CONNECT;
 }
