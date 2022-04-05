@@ -15,36 +15,53 @@
 #include <vector>
 #include "map.h"
 
+typedef struct {
+    int x;
+    int y;
+} vertex_property_t;
+
+typedef struct {
+    int weight;
+} edge_property_t;
+
 #define ADJACENCY_LIST
 
 #ifdef ADJACENCY_LIST
     #include <boost/graph/adjacency_list.hpp>
-    typedef boost::adjacency_list<boost::undirectedS> Graph;
+    typedef boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, vertex_property_t, edge_property_t> Graph;
 #elif defined(ADJACENCY_MATRIX)
     #include <boost/graph/adjacency_matrix.hpp>
     typedef boost::adjacency_matrix<boost::undirectedS> Graph;
 #endif
+
+typedef boost::graph_traits<Graph>::vertex_descriptor vertex_t;
+typedef boost::graph_traits<Graph>::edge_descriptor edge_t;
 
 // Planner class
 class Planner
 {
 public:
     Planner();
-    Planner(Map &map);
+    Planner(Map *map);
 
     ~Planner();
 
-    int plan(std::vector<double> &start, std::vector<double> &goal, std::vector<std::vector<double>> &path);
+    int plan(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int>> &path);
 
-    void setMap(Map &map);
+    void setMap(Map *map);
+
+    void setNumSamples(int numSamples);
+
+    void printGraph();
 
 private:
     Map *map_;
-    Graph *graph_;
+    Graph graph_;
+    int numSamples_;
     
     int generationPhase();
     int connectionPhase();
-    int queryPhase(std::vector<std::vector<double>> &path);
+    int queryPhase(std::vector<std::vector<int>> &path);
 };
 
 
