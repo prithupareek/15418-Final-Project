@@ -16,13 +16,16 @@ Map::~Map()
 {
 }
 
-void Map::load(const char* file, int width, int height)
+void Map::load(const char *file, int width, int height)
 {
     this->width_ = width;
     this->height_ = height;
 
-    this->map_ = std::vector<std::vector<int>>(height, std::vector<int>(width, FREE));
-    
+    this->map_ = std::vector<std::vector<int> >(height, std::vector<int>(width, FREE));
+
+    // print the filename
+    std::cout << "Loading map from file: " << file << std::endl;
+
     // read the map file into the map vector
     std::ifstream mapFile(file);
     std::string line;
@@ -31,7 +34,7 @@ void Map::load(const char* file, int width, int height)
     {
         for (size_t col = 0; col < line.size(); col++)
         {
-            this->map_[row][col] = (int) (line[col] - '0');
+            this->map_[row][col] = (int)(line[col] - '0');
         }
         row++;
     }
@@ -82,18 +85,20 @@ int Map::canConnect(int x1, int y1, int x2, int y2)
     bool horizontal_works = true;
     for (int x = x1; x != x2; x += stepX)
     {
-        if (!this->isFree(x, y1)) {
+        if (!this->isFree(x, y1))
+        {
             horizontal_works = false;
-            break; 
+            break;
         }
     }
     if (horizontal_works)
     {
         for (int y = y1; y != y2; y += stepY)
         {
-            if (!this->isFree(x2, y)) {
+            if (!this->isFree(x2, y))
+            {
                 horizontal_works = false;
-                break; 
+                break;
             }
         }
     }
@@ -106,18 +111,20 @@ int Map::canConnect(int x1, int y1, int x2, int y2)
     bool vertical_works = true;
     for (int y = y1; y != y2; y += stepY)
     {
-        if (!this->isFree(x1, y)) {
+        if (!this->isFree(x1, y))
+        {
             vertical_works = false;
-            break; 
+            break;
         }
     }
     if (vertical_works)
     {
         for (int x = x1; x != x2; x += stepX)
         {
-            if (!this->isFree(x, y2)) {
+            if (!this->isFree(x, y2))
+            {
                 vertical_works = false;
-                break; 
+                break;
             }
         }
     }

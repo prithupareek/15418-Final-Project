@@ -16,27 +16,35 @@ int main(int argc, char **argv)
 {
     // Initialize the map
     Map *map = new Map();
-    map->load("../maps/no_connections_10x10.txt", 10, 10);
+    map->load("../maps/basic_10x10.txt", 10, 10);
     // map->print();
 
     // Initialize the planner
     Planner *planner = new Planner();
     planner->setMap(map);
 
-    planner->setNumSamples(5);
+    planner->setNumSamples(10);
 
     // Set the start and goal
     std::vector<int> start = {0, 0};
     std::vector<int> goal = {9, 9};
 
     // create the path vector
-    std::vector<std::vector<int>> path;
+    std::vector<std::vector<int> > path;
 
     // plan the path
     planner->plan(start, goal, path);
-    
+
     // print the graph
     planner->printGraph();
+
+    // print the path
+    std::cout << "PATH: " << std::endl;
+    for (auto v : path)
+    {
+        std::cout << "(" << v[0] << "," << v[1] << ")" << std::endl;
+    }
+    std::cout << std::endl;
 
     delete map;
     delete planner;

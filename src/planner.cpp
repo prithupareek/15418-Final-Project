@@ -1,5 +1,8 @@
 #include "planner.h"
 #include <iostream>
+#include <queue>
+#include "node.h"
+#include <unordered_set>
 
 using namespace std;
 #include <boost/version.hpp>
@@ -7,11 +10,11 @@ using namespace std;
 Planner::Planner()
 {
     std::cout << "Created Planner" << std::endl;
-    std::cout << "Using Boost "     
-          << BOOST_VERSION / 100000     << "."  // major version
-          << BOOST_VERSION / 100 % 1000 << "."  // minor version
-          << BOOST_VERSION % 100                // patch level
-          << std::endl;
+    std::cout << "Using Boost "
+              << BOOST_VERSION / 100000 << "."     // major version
+              << BOOST_VERSION / 100 % 1000 << "." // minor version
+              << BOOST_VERSION % 100               // patch level
+              << std::endl;
     // this->graph_ = NULL;
     this->numSamples_ = 0;
     srand(time(0));
@@ -51,7 +54,7 @@ void Planner::printGraph()
     }
 }
 
-int Planner::plan(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int>> &path)
+int Planner::plan(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int> > &path)
 {
     std::cout << "Planning" << std::endl;
     if (this->generationPhase() != 0)
@@ -64,7 +67,7 @@ int Planner::plan(std::vector<int> &start, std::vector<int> &goal, std::vector<s
         std::cout << "Connection failed" << std::endl;
         return -1;
     }
-    if (this->queryPhase(path) != 0)
+    if (this->queryPhase(start, goal, path) != 0)
     {
         std::cout << "Query failed" << std::endl;
         return -1;
@@ -94,7 +97,8 @@ int Planner::generationPhase()
     {
         bool pointIsFree = false;
         vertex_property_t vp;
-        do {
+        do
+        {
             // pick a random x and y from the map
             vp.x = rand() % this->map_->getWidth();
             vp.y = rand() % this->map_->getHeight();
@@ -113,47 +117,199 @@ int Planner::connectionPhase()
 {
     // For each vertex, connect vertex to its k closest neighbors
     for (auto vd : boost::make_iterator_range(vertices(this->graph_)))
-    {  
-        // find a list of k closest vertices
-        std::vector<vertex_t> k_closest_vertices;
+    {
+        this->connectVertex(vd);
+    }
 
-        for (auto vd2 : boost::make_iterator_range(vertices(this->graph_)))
+    return 0;
+}
+
+int Planner::connectVertex(vertex_t vd)
+{
+    // find a list of k closest vertices
+    std::vector<vertex_t> k_closest_vertices;
+
+    for (auto vd2 : boost::make_iterator_range(vertices(this->graph_)))
+    {
+        if (vd == vd2)
         {
-            if (vd == vd2)
-            {
-                continue;
-            }
-            vertex_property_t vp1 = this->graph_[vd];
-            vertex_property_t vp2 = this->graph_[vd2];
-            double distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
-            if (distance < this->dist_threshold_)
-            {
-                k_closest_vertices.push_back(vd2);
-            }
+            continue;
         }
-
-        // for each vertex in list
-        for (auto vd2 : k_closest_vertices)
+        vertex_property_t vp1 = this->graph_[vd];
+        vertex_property_t vp2 = this->graph_[vd2];
+        double distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
+        if (distance < this->dist_threshold_)
         {
-            // check for a collision free edge between the two vertices
-            vertex_property_t vp1 = this->graph_[vd];
-            vertex_property_t vp2 = this->graph_[vd2];
+            k_closest_vertices.push_back(vd2);
+        }
+    }
 
-            int direction = this->map_->canConnect(vp1.x, vp1.y, vp2.x, vp2.y);
+    // for each vertex in list
+    for (auto vd2 : k_closest_vertices)
+    {
+        // check for a collision free edge between the two vertices
+        vertex_property_t vp1 = this->graph_[vd];
+        vertex_property_t vp2 = this->graph_[vd2];
 
-            if (direction != CANT_CONNECT)
-            {
-                edge_t e = boost::add_edge(vd, vd2, this->graph_).first;
-                this->graph_[e].distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
-                this->graph_[e].direction = direction;
-            }
+        int direction = this->map_->canConnect(vp1.x, vp1.y, vp2.x, vp2.y);
+
+        if (direction != CANT_CONNECT)
+        {
+            edge_t e = boost::add_edge(vd, vd2, this->graph_).first;
+            this->graph_[e].distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
+            this->graph_[e].direction = direction;
         }
     }
 
     return 0;
 }
 
-int Planner::queryPhase(std::vector<std::vector<int>> &path)
+vertex_t Planner::addAndConnectVertex(std::vector<int> point, int &status)
 {
+    // check if the point is free
+    if (!this->map_->isFree(point[0], point[1]))
+    {
+        status = -1;
+        return 0;
+    }
+
+    vertex_property_t vp;
+    vp.x = point[0];
+    vp.y = point[1];
+
+    // add vertex to graph
+    vertex_t vd = boost::add_vertex(this->graph_);
+    this->graph_[vd] = vp;
+
+    // connect the vertex
+    // NOTE this algo has been modified from the original.
+    // Here we connect to all k nearest vertices, in the original only the closest is connected.
+    this->connectVertex(vd);
+
+    return vd;
+}
+
+int Planner::queryPhase(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int> > &path)
+{
+    // Add the start and goal vertex to the graph
+    int status = 0;
+    this->start_vd_ = addAndConnectVertex(start, status);
+    if (status == -1)
+    {
+        std::cout << "Invalid Start State. Planning Failed." << std::endl;
+        return -1;
+    }
+
+    this->goal_vd_ = addAndConnectVertex(goal, status);
+    if (status == -1)
+    {
+        std::cout << "Invalid Goal State. Planning Failed." << std::endl;
+        return -1;
+    }
+
+    // Try and find a path from start to goal
+    this->astar(path);
+
+    if (path.size() == 0)
+    {
+        std::cout << "No path found. Planning Failed." << std::endl;
+        return -1;
+    }
+
+    return 0;
+}
+
+int Planner::astar(std::vector<std::vector<int> > &path)
+{
+
+    vertex_property_t start_properties = this->graph_[this->start_vd_];
+    vertex_property_t goal_properties = this->graph_[this->goal_vd_];
+
+    // Create the open list
+    priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> openList = priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator>();
+
+    // create the start and goal nodes
+    int start_h = this->map_->getDistance(start_properties.x, start_properties.y, goal_properties.x, goal_properties.y);
+    AstarNode *startNode = new AstarNode(this->start_vd_, 0, start_h, NULL);
+    AstarNode *goalNode = new AstarNode(this->goal_vd_, -1, 0, NULL);
+    (void)goalNode;
+
+    // add the start node to the open list
+    openList.push(startNode);
+
+    // Create the closed list
+    unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator> closedList = unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator>();
+
+    // while the open list is not empty
+    while (!openList.empty())
+    {
+        // get node with smalled f-value
+        AstarNode *currNode = openList.top();
+        openList.pop();
+
+        // keep removing until node not in closed list
+        if (closedList.find(currNode) != closedList.end())
+        {
+            continue;
+        }
+
+        // insert into the closed list
+        closedList.insert(currNode);
+
+        // check if we have reached the goal stage
+        if (currNode->vertexDescriptor == this->goal_vd_)
+        {
+            cout << this->goal_vd_ << std::endl;
+            cout << "We have Reached the Goal!!!" << endl;
+            goalNode = currNode;
+            break;
+        }
+
+        // get the vertex descriptor of the current node
+        vertex_t currNodeVD = currNode->vertexDescriptor;
+
+        // get neighbors
+        auto neighbors = boost::adjacent_vertices(currNode->vertexDescriptor, this->graph_);
+
+        // for each neighbor
+        for (vertex_t vd : make_iterator_range(neighbors))
+        {
+            edge_t e = boost::edge(currNodeVD, vd, this->graph_).first;
+
+            vertex_property_t vdPos = this->graph_[vd];
+
+            // calculate f value
+            int newG = currNode->gValue + this->graph_[e].distance;
+            int newH = this->map_->getDistance(vdPos.x, vdPos.y, goal_properties.x, goal_properties.y);
+
+            // construct the node
+            AstarNode *newNode = new AstarNode(vd, newG, newH, currNode);
+
+            // if node already in closed list then skip
+            if (closedList.find(newNode) == closedList.end())
+            {
+                openList.push(newNode);
+            }
+        }
+    }
+
+    // check if found path
+    if (goalNode->parent == NULL)
+    {
+        cout << "No Path Found" << endl;
+        return -1;
+    }
+
+    // construct the path
+    AstarNode *currNode = goalNode;
+    while (currNode != NULL)
+    {
+        path.push_back({this->graph_[currNode->vertexDescriptor].x, this->graph_[currNode->vertexDescriptor].y});
+        currNode = currNode->parent;
+    }
+
+    // reverse the path
+    reverse(path.begin(), path.end());
+
     return 0;
 }

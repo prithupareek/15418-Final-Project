@@ -1,6 +1,6 @@
 APP_NAME=planner
 
-OBJS=main.o planner.o map.o
+OBJS=main.o planner.o map.o node.o
 
 CXX = g++ -m64 -std=c++11
 CXXFLAGS = -I. -O3 -Wall -Werror
