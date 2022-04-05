@@ -27,7 +27,7 @@ We are planning (no pun intended) to use the GHC machines and maybe the PSC mach
 ### Schedule
 April 2nd: Create Maps; Finish sequential Version of Generation and Connection
 
-April 9th: Finish Generation Phase in Parallel
+April 9th: Finish Sequential Version of A*, Finish Generation Phase in Parallel
 
 April 11th: Checkpoint; Finish Visualizer
 
