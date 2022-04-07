@@ -18,7 +18,7 @@ Planner::Planner()
     // this->graph_ = NULL;
     this->numSamples_ = 0;
     srand(time(0));
-    this->dist_threshold_ = 5.0;
+    this->dist_threshold_ = 25.0;
 }
 
 Planner::Planner(Map *map)
@@ -97,6 +97,7 @@ int Planner::generationPhase()
     {
         bool pointIsFree = false;
         vertex_property_t vp;
+
         do
         {
             // pick a random x and y from the map

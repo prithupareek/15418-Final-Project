@@ -16,18 +16,19 @@ int main(int argc, char **argv)
 {
     // Initialize the map
     Map *map = new Map();
-    map->load("../maps/basic_10x10.txt", 10, 10);
+    // map->load("../maps/basic_10x10.txt", 10, 10);
+    map->load("../maps/large1_1280x720.txt", 1280, 720);
     // map->print();
 
     // Initialize the planner
     Planner *planner = new Planner();
     planner->setMap(map);
 
-    planner->setNumSamples(40);
+    planner->setNumSamples(6000);
 
     // Set the start and goal
     std::vector<int> start = {0, 0};
-    std::vector<int> goal = {9, 9};
+    std::vector<int> goal = {1279, 719};
 
     // create the path vector
     std::vector<std::vector<int> > path;

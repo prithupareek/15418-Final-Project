@@ -52,7 +52,7 @@ int Map::getHeight()
 
 bool Map::isFree(int x, int y)
 {
-    return (this->map_[x][y] == FREE);
+    return (this->map_[y][x] == FREE);
 }
 
 void Map::print()
