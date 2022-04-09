@@ -12,65 +12,82 @@
 #include <iostream>
 #include "planner.h"
 
-// print the path
-// void printPathWaypoints(std::vector<std::vector<int>> path) {
-//     std::cout << "PATH: " << std::endl;
-//     for (auto v : path)
-//     {
-//         std::cout << "(" << v[0] << "," << v[1] << ")" << std::endl;
-//     }
-//     std::cout << std::endl;
-// }
-
-// // print the full path
-// void printFullPath(std::vector<std::vector<int>> path) {
-//     std::cout << "FULL PATH: " << std::endl;
-//     for (auto v : path)
-//     {
-//         std::cout << "(" << v[0] << "," << v[1] << ")" << std::endl;
-
-//         // print the points between the two waypoints
-
-//     }
-//     std::cout << std::endl;
-// }
-
 
 int main(int argc, char **argv)
 {
     
+    int opt = 0;
+    std::string mapFile = "";
+    std::string pathFile = "";
+    int numSamples = 2000;
+
+    std::vector<int> start = {0, 0};
+    std::vector<int> goal = {0, 0};
+
+
+    do
+    {
+        opt = getopt(argc, argv, "i:o:s:g:n:h");
+        switch (opt)
+        {
+            case 'i':
+                std::cout << "Input file: " << optarg << std::endl;
+                mapFile = optarg;
+                break;
+            case 'o':
+                std::cout << "Output file: " << optarg << std::endl;
+                pathFile = optarg;
+                break;
+            case 's':
+                std::cout << "Start: " << optarg << std::endl;
+                start[0] = atoi(strtok(optarg, ","));
+                start[1] = atoi(strtok(NULL, ","));
+                break;
+            case 'g':
+                std::cout << "Goal: " << optarg << std::endl;
+                goal[0] = atoi(strtok(optarg, ","));
+                goal[1] = atoi(strtok(NULL, ","));
+                break;
+            case 'n':
+                std::cout << "Number of samples: " << optarg << std::endl;
+                numSamples = atoi(optarg);
+                break;
+            case 'h':
+                std::cout << "Usage: " << argv[0] << " -i <input_file> -o <output_file> -s <start_x,start_y> -g <goal_x,goal_y> -n <number_of_samples>" << std::endl;
+                return 0;
+        }
+    } while(opt != -1);
+
+    // validate arguments
+    if (mapFile == "" || pathFile == "")
+    {
+        std::cout << "Please provide input and output file names" << std::endl;
+        std::cout << "Usage: " << argv[0] << " -i <input_file> -o <output_file> -s <start_x,start_y> -g <goal_x,goal_y> -n <number_of_samples>" << std::endl;
+        return -1;
+    }
+
     // Initialize the map
     Map *map = new Map();
-    // map->load("../maps/basic_10x10.txt", 10, 10);
-    map->load("../maps/large1_1280x720.txt", 1280, 720);
-    // map->print();
+    map->load(mapFile);
 
     // Initialize the planner
     Planner *planner = new Planner();
     planner->setMap(map);
 
-    planner->setNumSamples(8000);
+    planner->setNumSamples(numSamples);
 
     // Set the start and goal
-    std::vector<int> start = {0, 0};
-    std::vector<int> goal = {1279, 719};
     planner->setStartState(start);
     planner->setGoalState(goal);
 
-
     // plan the path
     planner->plan();
-
-    // print the graph
-    // planner->printGraph();
 
     // print the path waypoints
     planner->printPath();
 
     // save the path to a file
-    planner->savePathToFile("../paths/large1_1280x720.txt");
-
-    
+    planner->savePathToFile(pathFile);
 
     delete map;
     delete planner;

@@ -3,6 +3,7 @@
 #define MAP_H
 
 #include <vector>
+#include <string>
 
 #define CANT_CONNECT    0
 #define CONNECT_VERT    1
@@ -14,7 +15,7 @@ class Map
         Map();
         ~Map();
 
-        void load(const char* file, int width, int height);
+        void load(std::string file);
         int getWidth();
         int getHeight();
         bool isFree(int x, int y);

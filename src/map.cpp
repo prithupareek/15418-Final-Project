@@ -16,12 +16,10 @@ Map::~Map()
 {
 }
 
-void Map::load(const char *file, int width, int height)
+void Map::load(std::string file)
 {
-    this->width_ = width;
-    this->height_ = height;
 
-    this->map_ = std::vector<std::vector<int> >(height, std::vector<int>(width, FREE));
+    // this->map_ = std::vector<std::vector<int> >;
 
     // print the filename
     std::cout << "Loading map from file: " << file << std::endl;
@@ -32,12 +30,17 @@ void Map::load(const char *file, int width, int height)
     int row = 0;
     while (std::getline(mapFile, line))
     {
+        this->map_.push_back(std::vector<int>(line.size(), FREE));
+        
         for (size_t col = 0; col < line.size(); col++)
         {
             this->map_[row][col] = (int)(line[col] - '0');
         }
         row++;
     }
+
+    this->width_ = this->map_[0].size();
+    this->height_ = this->map_.size();
 }
 
 int Map::getWidth()
