@@ -3,6 +3,7 @@
 #include <queue>
 #include "node.h"
 #include <unordered_set>
+#include <fstream>
 
 using namespace std;
 #include <boost/version.hpp>
@@ -54,9 +55,48 @@ void Planner::printGraph()
     }
 }
 
-int Planner::plan(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int> > &path)
+void Planner::printPath()
+{
+    std::cout << "PATH: " << std::endl;
+    for (auto v : this->path_)
+    {
+        std::cout << "(" << v[0] << "," << v[1] << ")" << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+// save path to file
+void Planner::savePathToFile(std::string filename)
+{
+    std::ofstream outfile;
+    outfile.open(filename);
+    for (auto v : this->path_)
+    {
+        outfile << "(" << v[0] << "," << v[1] << ")" << std::endl;
+    }
+    outfile.close();
+}
+
+
+// set start state
+void Planner::setStartState(std::vector<int> start)
+{
+    this->start_ = start;
+}
+
+// set goal state
+void Planner::setGoalState(std::vector<int> goal)
+{
+    this->goal_ = goal;
+}
+
+int Planner::plan()
 {
     std::cout << "Planning" << std::endl;
+
+    // clear the path
+    this->path_.clear();
+
     if (this->generationPhase() != 0)
     {
         std::cout << "Generation failed" << std::endl;
@@ -67,7 +107,7 @@ int Planner::plan(std::vector<int> &start, std::vector<int> &goal, std::vector<s
         std::cout << "Connection failed" << std::endl;
         return -1;
     }
-    if (this->queryPhase(start, goal, path) != 0)
+    if (this->queryPhase() != 0)
     {
         std::cout << "Query failed" << std::endl;
         return -1;
@@ -190,37 +230,43 @@ vertex_t Planner::addAndConnectVertex(std::vector<int> point, int &status)
     return vd;
 }
 
-int Planner::queryPhase(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int> > &path)
+int Planner::queryPhase()
 {
     // Add the start and goal vertex to the graph
     int status = 0;
-    this->start_vd_ = addAndConnectVertex(start, status);
+    this->start_vd_ = addAndConnectVertex(this->start_, status);
     if (status == -1)
     {
         std::cout << "Invalid Start State. Planning Failed." << std::endl;
         return -1;
     }
 
-    this->goal_vd_ = addAndConnectVertex(goal, status);
+    this->goal_vd_ = addAndConnectVertex(this->goal_, status);
     if (status == -1)
     {
         std::cout << "Invalid Goal State. Planning Failed." << std::endl;
         return -1;
     }
 
-    // Try and find a path from start to goal
-    this->astar(path);
+    // create the waypoint vector
+    std::vector<vertex_t> waypoints;
 
-    if (path.size() == 0)
+    // Try and find a path from start to goal
+    this->astar(waypoints);
+
+    if (waypoints.size() == 0)
     {
         std::cout << "No path found. Planning Failed." << std::endl;
         return -1;
     }
 
+    // interpolate the path
+    this->interpolate(waypoints);
+
     return 0;
 }
 
-int Planner::astar(std::vector<std::vector<int> > &path)
+int Planner::astar(std::vector<vertex_t> &waypoints)
 {
 
     vertex_property_t start_properties = this->graph_[this->start_vd_];
@@ -305,12 +351,97 @@ int Planner::astar(std::vector<std::vector<int> > &path)
     AstarNode *currNode = goalNode;
     while (currNode != NULL)
     {
-        path.push_back({this->graph_[currNode->vertexDescriptor].x, this->graph_[currNode->vertexDescriptor].y});
+        waypoints.push_back(currNode->vertexDescriptor);
         currNode = currNode->parent;
     }
 
     // reverse the path
-    reverse(path.begin(), path.end());
+    reverse(waypoints.begin(), waypoints.end());
+
+    return 0;
+}
+
+// interpolate the path
+int Planner::interpolate(std::vector<vertex_t> &waypoints)
+{   
+    // hold curr and prev waypoint
+    vertex_t currWaypoint;
+    vertex_t nextWaypoint;
+
+
+    // for each waypoint starting at index 1
+    for (size_t i = 0; i < waypoints.size(); i++)
+    {
+        // get the current waypoint
+        currWaypoint = waypoints[i];
+
+        // get the x and y of the current waypoint
+        int currWaypointX = this->graph_[currWaypoint].x;
+        int currWaypointY = this->graph_[currWaypoint].y;
+
+        // push the x and y of the current waypoint onto the path as a vector
+        this->path_.push_back({currWaypointX, currWaypointY});
+
+        // if the current waypoint is the last waypoint then break
+        if (i == waypoints.size() - 1)
+        {
+            break;
+        }
+
+        // get the next waypoint
+        nextWaypoint = waypoints[i + 1];
+
+        // get the x and y of the next waypoint
+        int nextWaypointX = this->graph_[nextWaypoint].x;
+        int nextWaypointY = this->graph_[nextWaypoint].y;
+
+        // get the edge between the current and next waypoint
+        edge_t e = boost::edge(currWaypoint, nextWaypoint, this->graph_).first;
+        
+        // get the direction of the edge
+        int direction = this->graph_[e].direction;
+
+        // calculate stepx and stepy
+        int stepX = (nextWaypointX > currWaypointX) ? 1 : -1;
+        int stepY = (nextWaypointY > currWaypointY) ? 1 : -1;
+
+        // if the direction is horizontal
+        if (direction == CONNECT_HORIZ)
+        {
+            // horizontal part first
+            for (int x = currWaypointX; x != nextWaypointX; x += stepX)
+            {
+                // push the point onto the path
+                this->path_.push_back({x, currWaypointY});
+            }
+
+            // vertical part
+            for (int y = currWaypointY; y != nextWaypointY; y += stepY)
+            {
+                // push the point onto the path
+                this->path_.push_back({nextWaypointX, y});
+            }
+        }
+
+        // else if the direction is vertical
+        else if (direction == CONNECT_VERT)
+        {
+            // vertical part first
+            for (int y = currWaypointY; y != nextWaypointY; y += stepY)
+            {
+                // push the point onto the path
+                this->path_.push_back({currWaypointX, y});
+            }
+
+            // horizontal part
+            for (int x = currWaypointX; x != nextWaypointX; x += stepX)
+            {
+                // push the point onto the path
+                this->path_.push_back({x, nextWaypointY});
+            }
+        }
+
+    }
 
     return 0;
 }

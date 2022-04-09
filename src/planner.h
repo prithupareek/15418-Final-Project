@@ -49,13 +49,20 @@ public:
 
     ~Planner();
 
-    int plan(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int> > &path);
+    void setStartState(std::vector<int> start);
+    void setGoalState(std::vector<int> goal);
+
+    int plan();
 
     void setMap(Map *map);
 
     void setNumSamples(int numSamples);
 
     void printGraph();
+
+    void printPath();
+
+    void savePathToFile(std::string fileName);
 
 private:
     Map *map_;
@@ -66,15 +73,23 @@ private:
     vertex_t start_vd_;
     vertex_t goal_vd_;
 
+    // start and goal vectors
+    std::vector<int> start_;
+    std::vector<int> goal_;
+
+    // path vector
+    std::vector<std::vector<int> > path_;
+
     int generationPhase();
     int connectionPhase();
-    int queryPhase(std::vector<int> &start, std::vector<int> &goal, std::vector<std::vector<int> > &path);
+    int queryPhase();
+    int interpolate(std::vector<vertex_t> &waypoints);
 
     int connectVertex(vertex_t vd);
 
     vertex_t addAndConnectVertex(std::vector<int> point, int &status);
 
-    int astar(std::vector<std::vector<int> > &path);
+    int astar(std::vector<vertex_t> &waypoints);
 };
 
 #endif /* PLANNER_H */

@@ -23,7 +23,7 @@ if __name__ == "__main__":
         point = line[line.find("(")+1:line.find(")")].split(",")
         x = int(point[0])
         y = int(point[1])
-        map[x][y] = 2
+        map[y][x] = 2
 
     for x in range(len(map)):
         for y in range(len(map[x])):
@@ -34,7 +34,7 @@ if __name__ == "__main__":
             elif map[x][y] == 2:
                 map[x][y] = [255, 0, 0]
 
-    print(map)
+    # print(map)
 
     map = np.asarray(map, dtype=np.uint8)
 
