@@ -118,7 +118,6 @@ int Planner::plan()
 void Planner::setMap(Map *map)
 {
     this->map_ = map;
-    map->print();
 }
 
 int Planner::generationPhase()

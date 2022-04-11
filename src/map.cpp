@@ -88,7 +88,7 @@ int Map::canConnect(int x1, int y1, int x2, int y2)
     bool horizontal_works = true;
     for (int x = x1; x != x2; x += stepX)
     {
-        if (!this->isFree(x, y1))
+        if (!(this->isFree(x, y1)))
         {
             horizontal_works = false;
             break;
@@ -98,7 +98,7 @@ int Map::canConnect(int x1, int y1, int x2, int y2)
     {
         for (int y = y1; y != y2; y += stepY)
         {
-            if (!this->isFree(x2, y))
+            if (!(this->isFree(x2, y)))
             {
                 horizontal_works = false;
                 break;
@@ -114,7 +114,7 @@ int Map::canConnect(int x1, int y1, int x2, int y2)
     bool vertical_works = true;
     for (int y = y1; y != y2; y += stepY)
     {
-        if (!this->isFree(x1, y))
+        if (!(this->isFree(x1, y)))
         {
             vertical_works = false;
             break;
@@ -124,7 +124,7 @@ int Map::canConnect(int x1, int y1, int x2, int y2)
     {
         for (int x = x1; x != x2; x += stepX)
         {
-            if (!this->isFree(x, y2))
+            if (!(this->isFree(x, y2)))
             {
                 vertical_works = false;
                 break;
