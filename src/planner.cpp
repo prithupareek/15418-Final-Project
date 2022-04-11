@@ -4,6 +4,8 @@
 #include "node.h"
 #include <unordered_set>
 #include <fstream>
+#include <omp.h>
+#include <chrono>
 
 using namespace std;
 #include <boost/version.hpp>
@@ -90,28 +92,45 @@ void Planner::setGoalState(std::vector<int> goal)
     this->goal_ = goal;
 }
 
-int Planner::plan()
+int Planner::plan(int numThreads)
 {
+    // Set the number of threads for the parallel region
+    omp_set_num_threads(numThreads);
     std::cout << "Planning" << std::endl;
 
     // clear the path
     this->path_.clear();
 
-    if (this->generationPhase() != 0)
+    // time generation phase
+    auto start = std::chrono::high_resolution_clock::now();
+    if (this->generationPhase(numThreads) != 0)
     {
         std::cout << "Generation failed" << std::endl;
         return -1;
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::cout << "Generation time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+
+    // time connection phase
+    start = std::chrono::high_resolution_clock::now();
     if (this->connectionPhase() != 0)
     {
         std::cout << "Connection failed" << std::endl;
         return -1;
     }
+    end = std::chrono::high_resolution_clock::now();
+    std::cout << "Connection time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    
+    // time query phase
+    start = std::chrono::high_resolution_clock::now();
     if (this->queryPhase() != 0)
     {
         std::cout << "Query failed" << std::endl;
         return -1;
     }
+    end = std::chrono::high_resolution_clock::now();
+    std::cout << "Query time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    
     return 0;
 }
 
@@ -120,7 +139,7 @@ void Planner::setMap(Map *map)
     this->map_ = map;
 }
 
-int Planner::generationPhase()
+int Planner::generationPhase(int numThreads)
 {
     if (this->numSamples_ == 0)
     {
@@ -130,24 +149,40 @@ int Planner::generationPhase()
 
     std::cout << "Sampling " << this->numSamples_ << " points" << std::endl;
 
-    // Initialize graph to empty
-    this->graph_ = Graph();
+    // print width and height of map
+    std::cout << "Map width: " << this->map_->getWidth() << std::endl;
+    std::cout << "Map height: " << this->map_->getHeight() << std::endl;
+
+    // Initialize graph the size of num samples
+    this->graph_ = Graph(this->numSamples_);
+
+    int mapWidth = this->map_->getWidth();
+    int mapHeight = this->map_->getHeight();
+
+    int chunk_size = (this->numSamples_ + numThreads - 1) / numThreads;
+
+    #pragma omp parallel for schedule(static, chunk_size)
     for (int i = 0; i < this->numSamples_; i++)
-    {
+    {        
+
         bool pointIsFree = false;
         vertex_property_t vp;
-
+        int count = 0;
         do
         {
             // pick a random x and y from the map
-            vp.x = rand() % this->map_->getWidth();
-            vp.y = rand() % this->map_->getHeight();
-            pointIsFree = this->map_->isFree(vp.x, vp.y);
+            vp.x = rand() % mapWidth;
+            vp.y = rand() % mapHeight;
+            pointIsFree = ((this->map_)->isFree)(vp.x, vp.y);
+            count++;
         } while (!pointIsFree);
-
+        std::cout << "Count: " << count << std::endl;
         // add vertex to graph
-        vertex_t v = boost::add_vertex(this->graph_);
-        this->graph_[v] = vp;
+        // #pragma omp critical
+        // {
+        // vertex_t v = boost::add_vertex(this->graph_);
+        this->graph_[i] = vp;
+        // }
     }
 
     return 0;

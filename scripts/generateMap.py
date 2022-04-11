@@ -1,6 +1,7 @@
 # generateMap.py
 import sys
 from PIL import Image
+from tqdm import tqdm
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
@@ -14,16 +15,17 @@ if __name__ == "__main__":
 
     output = open(mapFileName, "w")
 
-    for y in range(height):
+    # progres bar
+    for y in tqdm(range(height)):
         for x in range(width):
             coordinate = x,y
             px = im.getpixel(coordinate)
-            if (px > 0):
+            avgColor = sum(px) / len(px)
+            if (avgColor < 250):
                 output.write('1')
             else:
                 output.write('0')
         output.write("\n")
-    output.write("\n")
     output.close()
     print("Done writing to file")
 

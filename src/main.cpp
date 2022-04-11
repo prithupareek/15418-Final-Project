@@ -10,8 +10,13 @@
  */
 
 #include <iostream>
+#include <omp.h>
 #include "planner.h"
+#include <chrono>
 
+using namespace std::chrono;
+typedef std::chrono::high_resolution_clock Clock;
+typedef std::chrono::duration<double> dsec;
 
 int main(int argc, char **argv)
 {
@@ -20,6 +25,7 @@ int main(int argc, char **argv)
     std::string mapFile = "";
     std::string pathFile = "";
     int numSamples = 2000;
+    int numThreads = 1;
 
     std::vector<int> start = {0, 0};
     std::vector<int> goal = {0, 0};
@@ -27,7 +33,7 @@ int main(int argc, char **argv)
 
     do
     {
-        opt = getopt(argc, argv, "i:o:s:g:n:h");
+        opt = getopt(argc, argv, "i:o:s:g:n:h:t:");
         switch (opt)
         {
             case 'i':
@@ -55,6 +61,10 @@ int main(int argc, char **argv)
             case 'h':
                 std::cout << "Usage: " << argv[0] << " -i <input_file> -o <output_file> -s <start_x,start_y> -g <goal_x,goal_y> -n <number_of_samples>" << std::endl;
                 return 0;
+            case 't':
+                std::cout << "Number of threads: " << optarg << std::endl;
+                numThreads = atoi(optarg);
+                break;
         }
     } while(opt != -1);
 
@@ -65,6 +75,7 @@ int main(int argc, char **argv)
         std::cout << "Usage: " << argv[0] << " -i <input_file> -o <output_file> -s <start_x,start_y> -g <goal_x,goal_y> -n <number_of_samples>" << std::endl;
         return -1;
     }
+    
 
     // Initialize the map
     Map *map = new Map();
@@ -80,11 +91,18 @@ int main(int argc, char **argv)
     planner->setStartState(start);
     planner->setGoalState(goal);
 
+    // start timer
+    auto startTime = Clock::now();
+    
     // plan the path
-    planner->plan();
+    planner->plan(numThreads);
+    
+    // end timer
+    auto endTime = Clock::now();
 
-    // print the path waypoints
-    planner->printPath();
+    // print the time
+    double planTime = duration_cast<dsec>(endTime - startTime).count();
+    std::cout << "Time taken: " << planTime << " seconds" << std::endl;
 
     // save the path to a file
     planner->savePathToFile(pathFile);

@@ -52,7 +52,7 @@ public:
     void setStartState(std::vector<int> start);
     void setGoalState(std::vector<int> goal);
 
-    int plan();
+    int plan(int numThreads);
 
     void setMap(Map *map);
 
@@ -80,7 +80,7 @@ private:
     // path vector
     std::vector<std::vector<int> > path_;
 
-    int generationPhase();
+    int generationPhase(int numThreads);
     int connectionPhase();
     int queryPhase();
     int interpolate(std::vector<vertex_t> &waypoints);

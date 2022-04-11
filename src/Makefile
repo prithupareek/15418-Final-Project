@@ -3,7 +3,7 @@ APP_NAME=planner
 OBJS=main.o planner.o map.o node.o
 
 CXX = g++ -m64 -std=c++11
-CXXFLAGS = -I. -O3 -Wall -Werror
+CXXFLAGS = -fopenmp -I. -O3 -Wall -Werror
 
 default: $(APP_NAME)
 
