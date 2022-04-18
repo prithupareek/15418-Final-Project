@@ -72,7 +72,7 @@ int main(int argc, char **argv)
     if (mapFile == "" || pathFile == "")
     {
         std::cout << "Please provide input and output file names" << std::endl;
-        std::cout << "Usage: " << argv[0] << " -i <input_file> -o <output_file> -s <start_x,start_y> -g <goal_x,goal_y> -n <number_of_samples>" << std::endl;
+        std::cout << "Usage: " << argv[0] << " -i <input_file> -o <output_file> -s <start_x,start_y> -g <goal_x,goal_y> -n <number_of_samples> -t <number_of_threads>" << std::endl;
         return -1;
     }
     
