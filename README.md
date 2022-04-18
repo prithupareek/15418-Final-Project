@@ -27,13 +27,13 @@ We are planning (no pun intended) to use the GHC machines and maybe the PSC mach
 ### Schedule
 April 2nd: ~~Create Maps; Finish sequential Version of Generation and Connection~~ (Done)
 
-April 9th: ~~Finish Sequential Version of A*~~ (Done), Finish Generation Phase in Parallel (Need to test more)
+April 9th: ~~Finish Sequential Version of A*~~ (Done), ~~Finish Generation Phase in Parallel (Need to test more)~~
 
 April 11th: ~~Checkpoint; Finish Visualizer~~ (Done)
 
-April 14th: Finalize Generation in Parallel (or not), Write Code for Parallel Connection Phase
+April 14th: ~~Finalize Generation in Parallel (or not)~~, ~~Write Code for Parallel Connection Phase~~
 
-April 17th: Test and Finish Connection Phase in Parallel
+April 17th: ~~Test and Finish Connection Phase in Parallel~~
 
 April 21st: Write Code for A* in Parallel
 
