@@ -129,7 +129,7 @@ int Planner::plan(int numThreads)
         return -1;
     }
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Query time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    std::cout << "Query time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
     
     return 0;
 }
@@ -159,9 +159,9 @@ int Planner::generationPhase(int numThreads)
     int mapWidth = this->map_->getWidth();
     int mapHeight = this->map_->getHeight();
 
-    int chunk_size = (this->numSamples_ + numThreads - 1) / numThreads;
+    // int chunk_size = (this->numSamples_ + numThreads - 1) / numThreads;
 
-    #pragma omp parallel for schedule(static, chunk_size)
+    #pragma omp parallel for schedule(dynamic)
     for (int i = 0; i < this->numSamples_; i++)
     {        
 
@@ -176,13 +176,8 @@ int Planner::generationPhase(int numThreads)
             pointIsFree = ((this->map_)->isFree)(vp.x, vp.y);
             count++;
         } while (!pointIsFree);
-        std::cout << "Count: " << count << std::endl;
         // add vertex to graph
-        // #pragma omp critical
-        // {
-        // vertex_t v = boost::add_vertex(this->graph_);
         this->graph_[i] = vp;
-        // }
     }
 
     return 0;
@@ -190,8 +185,9 @@ int Planner::generationPhase(int numThreads)
 
 int Planner::connectionPhase()
 {
-    // For each vertex, connect vertex to its k closest neighbors
-    for (auto vd : boost::make_iterator_range(vertices(this->graph_)))
+    // For each vertex, connect vertex to its closest neighbors
+    #pragma omp parallel for schedule(static)
+    for (int vd = 0; vd < this->numSamples_; vd++)
     {
         this->connectVertex(vd);
     }
@@ -201,8 +197,6 @@ int Planner::connectionPhase()
 
 int Planner::connectVertex(vertex_t vd)
 {
-    // find a list of k closest vertices
-    std::vector<vertex_t> k_closest_vertices;
 
     for (auto vd2 : boost::make_iterator_range(vertices(this->graph_)))
     {
@@ -215,24 +209,19 @@ int Planner::connectVertex(vertex_t vd)
         double distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
         if (distance < this->dist_threshold_)
         {
-            k_closest_vertices.push_back(vd2);
-        }
-    }
+            // check for a collision free edge between the two vertices
+            int direction = this->map_->canConnect(vp1.x, vp1.y, vp2.x, vp2.y);
 
-    // for each vertex in list
-    for (auto vd2 : k_closest_vertices)
-    {
-        // check for a collision free edge between the two vertices
-        vertex_property_t vp1 = this->graph_[vd];
-        vertex_property_t vp2 = this->graph_[vd2];
-
-        int direction = this->map_->canConnect(vp1.x, vp1.y, vp2.x, vp2.y);
-
-        if (direction != CANT_CONNECT)
-        {
-            edge_t e = boost::add_edge(vd, vd2, this->graph_).first;
-            this->graph_[e].distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
-            this->graph_[e].direction = direction;
+            if (direction != CANT_CONNECT)
+            {
+                edge_t e;
+                #pragma omp critical
+                {
+                    e = boost::add_edge(vd, vd2, this->graph_).first;
+                }
+                this->graph_[e].distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
+                this->graph_[e].direction = direction;
+            }
         }
     }
 
