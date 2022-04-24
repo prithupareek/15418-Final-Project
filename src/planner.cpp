@@ -6,6 +6,7 @@
 #include <fstream>
 #include <omp.h>
 #include <chrono>
+#include <mutex>
 
 using namespace std;
 #include <boost/version.hpp>
@@ -123,7 +124,7 @@ int Planner::plan(int numThreads)
     
     // time query phase
     start = std::chrono::high_resolution_clock::now();
-    if (this->queryPhase() != 0)
+    if (this->queryPhase(numThreads) != 0)
     {
         std::cout << "Query failed" << std::endl;
         return -1;
@@ -253,7 +254,7 @@ vertex_t Planner::addAndConnectVertex(std::vector<int> point, int &status)
     return vd;
 }
 
-int Planner::queryPhase()
+int Planner::queryPhase(int numThreads)
 {
     // Add the start and goal vertex to the graph
     int status = 0;
@@ -275,7 +276,7 @@ int Planner::queryPhase()
     std::vector<vertex_t> waypoints;
 
     // Try and find a path from start to goal
-    this->astar(waypoints);
+    this->astar_parallel(waypoints, numThreads);
 
     if (waypoints.size() == 0)
     {
@@ -362,6 +363,148 @@ int Planner::astar(std::vector<vertex_t> &waypoints)
             }
         }
     }
+
+    // check if found path
+    if (goalNode->parent == NULL)
+    {
+        cout << "No Path Found" << endl;
+        return -1;
+    }
+
+    // construct the path
+    AstarNode *currNode = goalNode;
+    while (currNode != NULL)
+    {
+        waypoints.push_back(currNode->vertexDescriptor);
+        currNode = currNode->parent;
+    }
+
+    // reverse the path
+    reverse(waypoints.begin(), waypoints.end());
+
+    return 0;
+}
+
+int hash_fn(AstarNode *startNode, int numThreads)
+{
+    return startNode->vertexDescriptor % numThreads;
+}
+
+int isOpenListEmpty(priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> *openLists, int procID, std::mutex *openListsMutex)
+{
+    openListsMutex[procID].lock();
+    int ret = openLists[procID].empty();    
+    openListsMutex[procID].unlock();
+    return ret;
+}
+
+int isNodeInClosedList(unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator> *closedLists, int procID, AstarNode *node, std::mutex *closedListsMutex)
+{
+    closedListsMutex[procID].lock();
+    int ret = closedLists[procID].find(node) != closedLists[procID].end();
+    closedListsMutex[procID].unlock();
+    return ret;
+}
+
+int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
+{
+
+    vertex_property_t start_properties = this->graph_[this->start_vd_];
+    vertex_property_t goal_properties = this->graph_[this->goal_vd_];
+
+    // Create the open lists
+    priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> openLists[numThreads];
+    std::mutex openListsMutex[numThreads];
+
+    // Create the closed list
+    unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator> closedLists[numThreads];
+    std::mutex closedListsMutex[numThreads];
+    
+    for (int i = 0; i < numThreads; i++)
+    {
+        openLists[i] = priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator>();
+        closedLists[i] = unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator>();
+    }
+
+    // create the start and goal nodes
+    int start_h = this->map_->getDistance(start_properties.x, start_properties.y, goal_properties.x, goal_properties.y);
+    AstarNode *startNode = new AstarNode(this->start_vd_, 0, start_h, NULL);
+    AstarNode *goalNode = new AstarNode(this->goal_vd_, -1, 0, NULL);
+    (void)goalNode;
+
+    // add the start node to the open list
+    int firstProc = hash_fn(startNode, numThreads);
+    openListsMutex[firstProc].lock();
+    openLists[firstProc].push(startNode);    
+    openListsMutex[firstProc].unlock();
+
+    int procID;
+    #pragma omp parallel default(shared) private(procID)
+    {
+        procID = omp_get_thread_num();
+        // while the open list is not empty
+        while (!isOpenListEmpty(openLists, procID, openListsMutex))
+        {
+            // get node with smalled f-value
+            openListsMutex[procID].lock();
+            AstarNode *currNode = openLists[procID].top();
+            openLists[procID].pop();
+            openListsMutex[procID].unlock();
+
+            // keep removing until node not in closed list
+            if (isNodeInClosedList(closedLists, procID, currNode, closedListsMutex))
+            {
+                continue;
+            }
+
+            // insert into the closed list
+            closedListsMutex[procID].lock();
+            closedLists[procID].insert(currNode);
+            closedListsMutex[procID].unlock();
+
+            // check if we have reached the goal stage
+            if (currNode->vertexDescriptor == this->goal_vd_)
+            {
+                cout << this->goal_vd_ << std::endl;
+                cout << "We have Reached the Goal!!!" << endl;
+                goalNode = currNode;
+                break;
+            }
+
+            // get the vertex descriptor of the current node
+            vertex_t currNodeVD = currNode->vertexDescriptor;
+
+            // get neighbors
+            auto neighbors = boost::adjacent_vertices(currNode->vertexDescriptor, this->graph_);
+
+            // for each neighbor
+            for (vertex_t vd : make_iterator_range(neighbors))
+            {
+                edge_t e = boost::edge(currNodeVD, vd, this->graph_).first;
+
+                vertex_property_t vdPos = this->graph_[vd];
+
+                // calculate f value
+                int newG = currNode->gValue + this->graph_[e].distance;
+                int newH = this->map_->getDistance(vdPos.x, vdPos.y, goal_properties.x, goal_properties.y);
+
+                // construct the node
+                AstarNode *newNode = new AstarNode(vd, newG, newH, currNode);
+                int hashedProc = hash_fn(newNode, numThreads);
+
+                // if node already in closed list then skip                
+                if (!isNodeInClosedList(closedLists, hashedProc, newNode, closedListsMutex))
+                {
+                    // todo: mutex            
+                    openListsMutex[hashedProc].lock();
+                    openLists[hashedProc].push(newNode);
+                    openListsMutex[hashedProc].unlock();
+                }
+            }
+        }
+    }
+
+    
 
     // check if found path
     if (goalNode->parent == NULL)

@@ -82,7 +82,7 @@ private:
 
     int generationPhase(int numThreads);
     int connectionPhase();
-    int queryPhase();
+    int queryPhase(int numThreads);
     int interpolate(std::vector<vertex_t> &waypoints);
 
     int connectVertex(vertex_t vd);
@@ -90,6 +90,7 @@ private:
     vertex_t addAndConnectVertex(std::vector<int> point, int &status);
 
     int astar(std::vector<vertex_t> &waypoints);
+    int astar_parallel(std::vector<vertex_t> &waypoints, int numThreads);
 };
 
 #endif /* PLANNER_H */
