@@ -104,6 +104,9 @@ int main(int argc, char **argv)
     double planTime = duration_cast<dsec>(endTime - startTime).count();
     std::cout << "Time taken: " << planTime << " seconds" << std::endl;
 
+    // print the path length
+    std::cout << "Path length: " << planner->getPathLength() << std::endl;
+
     // save the path to a file
     planner->savePathToFile(pathFile);
 

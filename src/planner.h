@@ -64,6 +64,8 @@ public:
 
     void savePathToFile(std::string fileName);
 
+    int getPathLength();
+
 private:
     Map *map_;
     Graph graph_;

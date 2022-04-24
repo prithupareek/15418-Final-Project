@@ -2,6 +2,7 @@
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
+from tqdm import tqdm
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
@@ -13,19 +14,19 @@ if __name__ == "__main__":
 
     map = []
     mapFile = open(mapFileName, "r")
-    for line in mapFile:
+    for line in tqdm(mapFile):
         inner_list = [int(x) for x in list(line.replace("\n", ""))]
         map.append(inner_list)
     mapFile.close()
 
     pathFile = open(pathFileName, "r")
-    for line in pathFile:
+    for line in tqdm(pathFile):
         point = line[line.find("(")+1:line.find(")")].split(",")
         x = int(point[0])
         y = int(point[1])
         map[y][x] = 2
 
-    for x in range(len(map)):
+    for x in tqdm(range(len(map))):
         for y in range(len(map[x])):
             if map[x][y] == 0:
                 map[x][y] = [255, 255, 255]

@@ -68,6 +68,11 @@ void Planner::printPath()
     std::cout << std::endl;
 }
 
+int Planner::getPathLength()
+{
+    return this->path_.size();
+}
+
 // save path to file
 void Planner::savePathToFile(std::string filename)
 {
@@ -442,63 +447,65 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
     #pragma omp parallel default(shared) private(procID)
     {
         procID = omp_get_thread_num();
-        // while the open list is not empty
-        while (!isOpenListEmpty(openLists, procID, openListsMutex))
+        for (int i = 0; i < 1000; i++) // TODO: make less jank
         {
-            // get node with smalled f-value
-            openListsMutex[procID].lock();
-            AstarNode *currNode = openLists[procID].top();
-            openLists[procID].pop();
-            openListsMutex[procID].unlock();
-
-            // keep removing until node not in closed list
-            if (isNodeInClosedList(closedLists, procID, currNode, closedListsMutex))
+            // while the open list is not empty
+            while (!isOpenListEmpty(openLists, procID, openListsMutex))
             {
-                continue;
-            }
+                // get node with smalled f-value
+                openListsMutex[procID].lock();
+                AstarNode *currNode = openLists[procID].top();
+                openLists[procID].pop();
+                openListsMutex[procID].unlock();
 
-            // insert into the closed list
-            closedListsMutex[procID].lock();
-            closedLists[procID].insert(currNode);
-            closedListsMutex[procID].unlock();
-
-            // check if we have reached the goal stage
-            if (currNode->vertexDescriptor == this->goal_vd_)
-            {
-                cout << this->goal_vd_ << std::endl;
-                cout << "We have Reached the Goal!!!" << endl;
-                goalNode = currNode;
-                break;
-            }
-
-            // get the vertex descriptor of the current node
-            vertex_t currNodeVD = currNode->vertexDescriptor;
-
-            // get neighbors
-            auto neighbors = boost::adjacent_vertices(currNode->vertexDescriptor, this->graph_);
-
-            // for each neighbor
-            for (vertex_t vd : make_iterator_range(neighbors))
-            {
-                edge_t e = boost::edge(currNodeVD, vd, this->graph_).first;
-
-                vertex_property_t vdPos = this->graph_[vd];
-
-                // calculate f value
-                int newG = currNode->gValue + this->graph_[e].distance;
-                int newH = this->map_->getDistance(vdPos.x, vdPos.y, goal_properties.x, goal_properties.y);
-
-                // construct the node
-                AstarNode *newNode = new AstarNode(vd, newG, newH, currNode);
-                int hashedProc = hash_fn(newNode, numThreads);
-
-                // if node already in closed list then skip                
-                if (!isNodeInClosedList(closedLists, hashedProc, newNode, closedListsMutex))
+                // keep removing until node not in closed list
+                if (isNodeInClosedList(closedLists, procID, currNode, closedListsMutex))
                 {
-                    // todo: mutex            
-                    openListsMutex[hashedProc].lock();
-                    openLists[hashedProc].push(newNode);
-                    openListsMutex[hashedProc].unlock();
+                    continue;
+                }
+
+                // insert into the closed list
+                closedListsMutex[procID].lock();
+                closedLists[procID].insert(currNode);
+                closedListsMutex[procID].unlock();
+
+                // check if we have reached the goal stage
+                if (currNode->vertexDescriptor == this->goal_vd_)
+                {
+                    cout << this->goal_vd_ << std::endl;
+                    cout << "We have Reached the Goal!!!" << endl;
+                    goalNode = currNode;
+                    break;
+                }
+
+                // get the vertex descriptor of the current node
+                vertex_t currNodeVD = currNode->vertexDescriptor;
+
+                // get neighbors
+                auto neighbors = boost::adjacent_vertices(currNode->vertexDescriptor, this->graph_);
+
+                // for each neighbor
+                for (vertex_t vd : make_iterator_range(neighbors))
+                {
+                    edge_t e = boost::edge(currNodeVD, vd, this->graph_).first;
+
+                    vertex_property_t vdPos = this->graph_[vd];
+
+                    // calculate f value
+                    int newG = currNode->gValue + this->graph_[e].distance;
+                    int newH = this->map_->getDistance(vdPos.x, vdPos.y, goal_properties.x, goal_properties.y);
+
+                    // construct the node
+                    AstarNode *newNode = new AstarNode(vd, newG, newH, currNode);
+                    int hashedProc = hash_fn(newNode, numThreads);
+
+                    // if node already in closed list then skip                
+                    if (!isNodeInClosedList(closedLists, hashedProc, newNode, closedListsMutex))
+                    {
+                        openListsMutex[hashedProc].lock();
+                        openLists[hashedProc].push(newNode);
+                        openListsMutex[hashedProc].unlock();
+                    }
                 }
             }
         }
