@@ -308,6 +308,7 @@ int Planner::astar(std::vector<vertex_t> &waypoints)
     int start_h = this->map_->getDistance(start_properties.x, start_properties.y, goal_properties.x, goal_properties.y);
     AstarNode *startNode = new AstarNode(this->start_vd_, 0, start_h, NULL);
     AstarNode *goalNode = new AstarNode(this->goal_vd_, -1, 0, NULL);
+    // int path_size = -1;
     (void)goalNode;
 
     // add the start node to the open list
@@ -395,7 +396,7 @@ int hash_fn(AstarNode *startNode, int numThreads)
     return startNode->vertexDescriptor % numThreads;
 }
 
-int isOpenListEmpty(priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> *openLists, int procID, std::mutex *openListsMutex)
+bool isOpenListEmpty(priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> *openLists, int procID, std::mutex *openListsMutex)
 {
     openListsMutex[procID].lock();
     int ret = openLists[procID].empty();    
@@ -411,11 +412,25 @@ int isNodeInClosedList(unordered_set<AstarNode *, NodeHasher, ClosedListNodeComp
     return ret;
 }
 
+bool allOpenListsEmpty(bool *threadDone, int numThreads)
+{
+    for (int i = 0; i < numThreads; i++)
+    {
+        if (!threadDone[i]) 
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
 {
 
     vertex_property_t start_properties = this->graph_[this->start_vd_];
     vertex_property_t goal_properties = this->graph_[this->goal_vd_];
+
+    bool threadDone[numThreads];
 
     // Create the open lists
     priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> openLists[numThreads];
@@ -434,7 +449,7 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
     // create the start and goal nodes
     int start_h = this->map_->getDistance(start_properties.x, start_properties.y, goal_properties.x, goal_properties.y);
     AstarNode *startNode = new AstarNode(this->start_vd_, 0, start_h, NULL);
-    AstarNode *goalNode = new AstarNode(this->goal_vd_, -1, 0, NULL);
+    AstarNode *goalNode = NULL;
     (void)goalNode;
 
     // add the start node to the open list
@@ -447,8 +462,9 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
     #pragma omp parallel default(shared) private(procID)
     {
         procID = omp_get_thread_num();
-        for (int i = 0; i < 1000; i++) // TODO: make less jank
+        do
         {
+            threadDone[procID] = false;
             // while the open list is not empty
             while (!isOpenListEmpty(openLists, procID, openListsMutex))
             {
@@ -508,7 +524,17 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
                     }
                 }
             }
-        }
+
+            
+            #pragma omp barrier
+            threadDone[procID] = isOpenListEmpty(openLists, procID, openListsMutex);
+            if (goalNode != NULL)
+            {
+                threadDone[procID] = true;
+            }
+
+            #pragma omp barrier
+        } while (!allOpenListsEmpty(threadDone, numThreads));
     }
 
     
