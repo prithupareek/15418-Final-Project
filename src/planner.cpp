@@ -22,7 +22,7 @@ Planner::Planner()
     // this->graph_ = NULL;
     this->numSamples_ = 0;
     srand(time(0));
-    this->dist_threshold_ = 100.0;
+    this->dist_threshold_ = 25.0;
 }
 
 Planner::Planner(Map *map)
