@@ -66,6 +66,8 @@ public:
 
     int getPathLength();
 
+    int getPathDistance();
+
 private:
     Map *map_;
     Graph graph_;

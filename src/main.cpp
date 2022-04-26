@@ -105,7 +105,10 @@ int main(int argc, char **argv)
     std::cout << "Time taken: " << planTime << " seconds" << std::endl;
 
     // print the path length
-    std::cout << "Path length: " << planner->getPathLength() << std::endl;
+    std::cout << "Path Nodes: " << planner->getPathLength() << std::endl;
+
+    // print the path distance
+    std::cout << "Path Distance: " << planner->getPathDistance() << std::endl;
 
     // save the path to a file
     planner->savePathToFile(pathFile);

@@ -73,6 +73,28 @@ int Planner::getPathLength()
     return this->path_.size();
 }
 
+int Planner::getPathDistance()
+{
+    int distance = 0;
+
+    // loop over the path and use the distance between each node to calculate the total distance
+    for (size_t i = 0; i < this->path_.size() - 1; i++)
+    {
+        // get the current point x and y
+        int x1 = this->path_[i][0];
+        int y1 = this->path_[i][1];
+
+        // get the next point x and y
+        int x2 = this->path_[i + 1][0];
+        int y2 = this->path_[i + 1][1];
+
+        // calculate the distance between the two points
+        distance += this->map_->getDistance(x1, y1, x2, y2);
+    }
+
+    return distance;
+}
+
 // save path to file
 void Planner::savePathToFile(std::string filename)
 {

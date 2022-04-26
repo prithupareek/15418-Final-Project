@@ -12,3 +12,4 @@
 ### Prithu & Omkar
 - Resizing Images (Small is 500x500; Medium is 1000x1000; Large is 5000x5000)
 - Density Images are still 5000x5000
+- Planning on sampling 2%, 5%, 10% of the number of pixels for each map
