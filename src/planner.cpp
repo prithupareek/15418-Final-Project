@@ -6,6 +6,7 @@
 #include <fstream>
 #include <omp.h>
 #include <chrono>
+#include <mutex>
 
 using namespace std;
 #include <boost/version.hpp>
@@ -37,6 +38,7 @@ Planner::~Planner()
     //     delete this->graph_;
     // }
     std::cout << "Destroyed Planner" << std::endl;
+
 }
 
 void Planner::setNumSamples(int numSamples)
@@ -65,6 +67,33 @@ void Planner::printPath()
         std::cout << "(" << v[0] << "," << v[1] << ")" << std::endl;
     }
     std::cout << std::endl;
+}
+
+int Planner::getPathLength()
+{
+    return this->path_.size();
+}
+
+int Planner::getPathDistance()
+{
+    int distance = 0;
+
+    // loop over the path and use the distance between each node to calculate the total distance
+    for (size_t i = 0; i < this->path_.size() - 1; i++)
+    {
+        // get the current point x and y
+        int x1 = this->path_[i][0];
+        int y1 = this->path_[i][1];
+
+        // get the next point x and y
+        int x2 = this->path_[i + 1][0];
+        int y2 = this->path_[i + 1][1];
+
+        // calculate the distance between the two points
+        distance += this->map_->getDistance(x1, y1, x2, y2);
+    }
+
+    return distance;
 }
 
 // save path to file
@@ -109,7 +138,7 @@ int Planner::plan(int numThreads)
         return -1;
     }
     auto end = std::chrono::high_resolution_clock::now();
-    std::cout << "Generation time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    std::cout << "Generation time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
 
     // time connection phase
     start = std::chrono::high_resolution_clock::now();
@@ -119,11 +148,11 @@ int Planner::plan(int numThreads)
         return -1;
     }
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Connection time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    std::cout << "Connection time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
     
     // time query phase
     start = std::chrono::high_resolution_clock::now();
-    if (this->queryPhase() != 0)
+    if (this->queryPhase(numThreads) != 0)
     {
         std::cout << "Query failed" << std::endl;
         return -1;
@@ -253,7 +282,7 @@ vertex_t Planner::addAndConnectVertex(std::vector<int> point, int &status)
     return vd;
 }
 
-int Planner::queryPhase()
+int Planner::queryPhase(int numThreads)
 {
     // Add the start and goal vertex to the graph
     int status = 0;
@@ -274,8 +303,10 @@ int Planner::queryPhase()
     // create the waypoint vector
     std::vector<vertex_t> waypoints;
 
+    std::cout << "Starting A*" << std::endl;
+
     // Try and find a path from start to goal
-    this->astar(waypoints);
+    this->astar_parallel(waypoints, numThreads);
 
     if (waypoints.size() == 0)
     {
@@ -289,6 +320,7 @@ int Planner::queryPhase()
     return 0;
 }
 
+/*
 int Planner::astar(std::vector<vertex_t> &waypoints)
 {
 
@@ -302,6 +334,7 @@ int Planner::astar(std::vector<vertex_t> &waypoints)
     int start_h = this->map_->getDistance(start_properties.x, start_properties.y, goal_properties.x, goal_properties.y);
     AstarNode *startNode = new AstarNode(this->start_vd_, 0, start_h, NULL);
     AstarNode *goalNode = new AstarNode(this->goal_vd_, -1, 0, NULL);
+    // int path_size = -1;
     (void)goalNode;
 
     // add the start node to the open list
@@ -382,6 +415,207 @@ int Planner::astar(std::vector<vertex_t> &waypoints)
     reverse(waypoints.begin(), waypoints.end());
 
     return 0;
+}
+*/
+
+int hash_fn(AstarNode *startNode, int numThreads)
+{
+    return startNode->vertexDescriptor % numThreads;
+}
+
+bool isOpenListEmpty(priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> *openLists, int procID, std::mutex *openListsMutex)
+{
+    openListsMutex[procID].lock();
+    int ret = openLists[procID].empty();    
+    openListsMutex[procID].unlock();
+    return ret;
+}
+
+int isNodeInClosedList(unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator> *closedLists, int procID, AstarNode *node, std::mutex *closedListsMutex)
+{
+    closedListsMutex[procID].lock();
+    int ret = (closedLists[procID].find(node) != closedLists[procID].end());
+    closedListsMutex[procID].unlock();
+    return ret;
+}
+
+bool allOpenListsEmpty(bool *threadDone, int numThreads)
+{
+    for (int i = 0; i < numThreads; i++)
+    {
+        if (!threadDone[i]) 
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
+{
+
+    vertex_property_t start_properties = this->graph_[this->start_vd_];
+    vertex_property_t goal_properties = this->graph_[this->goal_vd_];
+
+    bool threadDone[numThreads];
+
+    // Create the open lists
+    priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator> openLists[numThreads];
+    std::mutex openListsMutex[numThreads];
+
+    // Create the closed list
+    unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator> closedLists[numThreads];
+    std::mutex closedListsMutex[numThreads];
+    
+    for (int i = 0; i < numThreads; i++)
+    {
+        openLists[i] = priority_queue<AstarNode *, vector<AstarNode *>, OpenListNodeComparator>();
+        closedLists[i] = unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator>();
+    }
+
+    // create the start and goal nodes
+    int start_h = this->map_->getDistance(start_properties.x, start_properties.y, goal_properties.x, goal_properties.y);
+    AstarNode *startNode = new AstarNode(this->start_vd_, 0, start_h, NULL);
+    AstarNode *goalNode = NULL;
+    (void)goalNode;
+
+    // add the start node to the open list
+    int firstProc = hash_fn(startNode, numThreads);
+    openListsMutex[firstProc].lock();
+    openLists[firstProc].push(startNode);    
+    openListsMutex[firstProc].unlock();
+
+    int procID;
+    #pragma omp parallel default(shared) private(procID)
+    {
+        procID = omp_get_thread_num();
+        do
+        {
+            threadDone[procID] = false;
+            // while the open list is not empty
+            while (!isOpenListEmpty(openLists, procID, openListsMutex))
+            {
+                // get node with smalled f-value
+                openListsMutex[procID].lock();
+                AstarNode *currNode = openLists[procID].top();
+                openLists[procID].pop();
+                openListsMutex[procID].unlock();
+
+                // keep removing until node not in closed list
+                if (isNodeInClosedList(closedLists, procID, currNode, closedListsMutex))
+                {
+                    continue;
+                }
+
+                // insert into the closed list
+                closedListsMutex[procID].lock();
+                closedLists[procID].insert(currNode);
+                closedListsMutex[procID].unlock();
+
+                // check if we have reached the goal stage
+                if (currNode->vertexDescriptor == this->goal_vd_)
+                {
+                    cout << this->goal_vd_ << std::endl;
+                    cout << "We have Reached the Goal!!!" << endl;
+                    goalNode = currNode;
+                    break;
+                }
+
+                // get the vertex descriptor of the current node
+                vertex_t currNodeVD = currNode->vertexDescriptor;
+
+                // get neighbors
+                auto neighbors = boost::adjacent_vertices(currNode->vertexDescriptor, this->graph_);
+
+                // for each neighbor
+                for (vertex_t vd : make_iterator_range(neighbors))
+                {
+                    edge_t e = boost::edge(currNodeVD, vd, this->graph_).first;
+
+                    vertex_property_t vdPos = this->graph_[vd];
+
+                    // calculate f value
+                    int newG = currNode->gValue + this->graph_[e].distance;
+                    int newH = this->map_->getDistance(vdPos.x, vdPos.y, goal_properties.x, goal_properties.y);
+
+                    // construct the node
+                    AstarNode *newNode = new AstarNode(vd, newG, newH, currNode);
+                    int hashedProc = hash_fn(newNode, numThreads);
+
+                    // if node already in closed list then skip                
+                    if (!isNodeInClosedList(closedLists, hashedProc, newNode, closedListsMutex))
+                    {
+                        openListsMutex[hashedProc].lock();
+                        openLists[hashedProc].push(newNode);
+                        openListsMutex[hashedProc].unlock();
+                    } else {
+                        delete newNode;
+                    }
+                }
+            }
+
+            
+            #pragma omp barrier
+            threadDone[procID] = isOpenListEmpty(openLists, procID, openListsMutex);
+            if (goalNode != NULL)
+            {
+                threadDone[procID] = true;
+            }
+
+            #pragma omp barrier
+        } while (!allOpenListsEmpty(threadDone, numThreads));
+    }
+
+    cout << "All threads exited" << endl;
+    bool no_path_found = false;
+
+    // check if found path
+    if (goalNode->parent == NULL)
+    {
+        cout << "No Path Found" << endl;
+        no_path_found = true;
+    }
+
+    if (!no_path_found)
+    {
+        // construct the path
+        AstarNode *currNode = goalNode;
+        while (currNode != NULL)
+        {
+            waypoints.push_back(currNode->vertexDescriptor);
+            currNode = currNode->parent;
+        }
+    }
+
+
+    for (int i = 0; i < numThreads; i++)
+    {
+        while (openLists[i].size() > 0)
+        {
+            AstarNode *node = openLists[i].top();
+            openLists[i].pop();
+            delete node;
+        }
+
+
+        for (auto it = closedLists[i].begin(); it != closedLists[i].end(); ++it )
+        {
+            AstarNode *node = *it;
+            delete node;
+        }
+
+        while (closedLists[i].size() > 0)
+        {
+            closedLists[i].erase(closedLists[i].begin());
+        }
+        
+    }
+
+
+    // reverse the path
+    reverse(waypoints.begin(), waypoints.end());
+
+    return !no_path_found;
 }
 
 // interpolate the path

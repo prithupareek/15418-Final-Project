@@ -1,0 +1,251 @@
+Testing all maps
+================
+Testing /jet/home/ppareek/15418-Final-Project/scripts/test_scripts/test_dense.sh
+----------------------------------- Testing Dense -----------------------------------
+Testing 1 Thread and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_1_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 1
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 120ms
+Connection time: 650251ms
+500001
+We have Reached the Goal!!!
+Query time: 2155257566ns
+Time taken: 652.528 seconds
+Path Nodes: 9784
+Path Distance: 9249
+Destroyed Planner
+Testing 2 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_2_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 2
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 121ms
+Connection time: 405430ms
+500001
+We have Reached the Goal!!!
+Query time: 15910453040ns
+Time taken: 421.462 seconds
+Path Nodes: 9769
+Path Distance: 9249
+Destroyed Planner
+Testing 4 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_4_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 4
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 120ms
+Connection time: 209004ms
+500001
+We have Reached the Goal!!!
+Query time: 30715994927ns
+Time taken: 239.842 seconds
+Path Nodes: 9778
+Path Distance: 9249
+Destroyed Planner
+Testing 8 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_8_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 8
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 119ms
+Connection time: 103938ms
+500001
+We have Reached the Goal!!!
+Query time: 16627618095ns
+Time taken: 120.687 seconds
+Path Nodes: 9776
+Path Distance: 9249
+Destroyed Planner
+Testing 16 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_16_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 16
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 121ms
+Connection time: 71245ms
+500001
+We have Reached the Goal!!!
+Query time: 13137656389ns
+Time taken: 84.5049 seconds
+Path Nodes: 9741
+Path Distance: 9249
+Destroyed Planner
+Testing 32 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_32_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 32
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 120ms
+Connection time: 59182ms
+500001
+We have Reached the Goal!!!
+Query time: 6725293865ns
+Time taken: 66.0292 seconds
+Path Nodes: 9753
+Path Distance: 9249
+Destroyed Planner
+Testing 64 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_64_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 64
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 120ms
+Connection time: 54750ms
+500001
+We have Reached the Goal!!!
+Query time: 6212244922ns
+Time taken: 61.0835 seconds
+Path Nodes: 9749
+Path Distance: 9249
+Destroyed Planner
+Testing 128 Threads and 500,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_128_500000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 500000
+Number of threads: 128
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 500000 points
+Map width: 5000
+Map height: 5000
+Generation time: 120ms
+Connection time: 49332ms
+500001
+We have Reached the Goal!!!
+Query time: 6147080225ns
+Time taken: 55.6008 seconds
+Path Nodes: 9773
+Path Distance: 9249
+Destroyed Planner
+--------------------------------------------------------------------------------
+Testing 1 Threads and 1,250,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_1_1250000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 1250000
+Number of threads: 1
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 1250000 points
+Map width: 5000
+Map height: 5000
+Generation time: 309ms
+Connection time: 4309811ms
+1250001
+We have Reached the Goal!!!
+Query time: 7805813094ns
+Time taken: 4317.93 seconds
+Path Nodes: 9794
+Path Distance: 9249
+Destroyed Planner
+Testing 2 Threads and 1,250,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_2_1250000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 1250000
+Number of threads: 2
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 1250000 points
+Map width: 5000
+Map height: 5000
+Generation time: 301ms
+Connection time: 3415290ms
+1250001
+We have Reached the Goal!!!
+Query time: 148287947422ns
+Time taken: 3563.88 seconds
+Path Nodes: 9804
+Path Distance: 9249
+Destroyed Planner
+Testing 4 Threads and 1,250,000 samples
+Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Output file: /jet/home/ppareek/15418-Final-Project/paths/tests/density/Dense_4_1250000.txt
+Start: 0,0
+Goal: 4999,4250
+Number of samples: 1250000
+Number of threads: 4
+Loading map from file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
+Created Planner
+Using Boost 1.66.0
+Planning
+Sampling 1250000 points
+Map width: 5000
+Map height: 5000
+Generation time: 304ms
+slurmstepd: error: *** JOB 8453291 ON r267 CANCELLED AT 2022-04-26T04:14:54 DUE TO TIME LIMIT ***

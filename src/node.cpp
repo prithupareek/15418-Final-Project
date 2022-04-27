@@ -7,3 +7,8 @@ AstarNode::AstarNode(size_t vd, int gValue, int hValue, AstarNode *parent)
     this->hValue = hValue;
     this->parent = parent;
 }
+
+AstarNode::~AstarNode()
+{
+
+}
