@@ -78,6 +78,12 @@ int Planner::getPathDistance()
 {
     int distance = 0;
 
+    // reutrn 0 if path is empty
+    if (this->path_.size() == 0)
+    {
+        return 0;
+    }
+
     // loop over the path and use the distance between each node to calculate the total distance
     for (size_t i = 0; i < this->path_.size() - 1; i++)
     {
@@ -94,6 +100,22 @@ int Planner::getPathDistance()
     }
 
     return distance;
+}
+
+// get timing information for connection, generation, and query
+double Planner::getConnectionTime()
+{
+    return this->connection_time_;
+}
+
+double Planner::getGenerationTime()
+{
+    return this->generation_time_;
+}
+
+double Planner::getQueryTime()
+{
+    return this->query_time_;
 }
 
 // save path to file
@@ -138,7 +160,9 @@ int Planner::plan(int numThreads)
         return -1;
     }
     auto end = std::chrono::high_resolution_clock::now();
-    std::cout << "Generation time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
+    // save the time it took to generate the graph
+    this->generation_time_ = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    std::cout << "Generation time: " << this->generation_time_ << "ns" << std::endl;
 
     // time connection phase
     start = std::chrono::high_resolution_clock::now();
@@ -148,7 +172,9 @@ int Planner::plan(int numThreads)
         return -1;
     }
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Connection time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
+    // save the time it took to connect the graph
+    this->connection_time_ = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    std::cout << "Connection time: " << this->connection_time_ << "ns" << std::endl;
     
     // time query phase
     start = std::chrono::high_resolution_clock::now();
@@ -158,7 +184,9 @@ int Planner::plan(int numThreads)
         return -1;
     }
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Query time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
+    // save the time it took to query the graph
+    this->query_time_ = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    std::cout << "Query time: " << this->query_time_ << "ns" << std::endl;
     
     return 0;
 }
@@ -570,7 +598,7 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
     bool no_path_found = false;
 
     // check if found path
-    if (goalNode->parent == NULL)
+    if (goalNode == NULL)
     {
         cout << "No Path Found" << endl;
         no_path_found = true;
@@ -580,13 +608,13 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
     {
         // construct the path
         AstarNode *currNode = goalNode;
+        std::cout << "Path Found" << std::endl;
         while (currNode != NULL)
         {
             waypoints.push_back(currNode->vertexDescriptor);
             currNode = currNode->parent;
         }
     }
-
 
     for (int i = 0; i < numThreads; i++)
     {

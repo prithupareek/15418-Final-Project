@@ -68,6 +68,12 @@ public:
 
     int getPathDistance();
 
+    // get timing information for connection, generation, and query
+    double getConnectionTime();
+    double getGenerationTime();
+    double getQueryTime();
+    
+
 private:
     Map *map_;
     Graph graph_;
@@ -76,6 +82,11 @@ private:
 
     vertex_t start_vd_;
     vertex_t goal_vd_;
+
+    // timing for connection, generation, and query
+    double connection_time_;
+    double generation_time_;
+    double query_time_;
 
     // start and goal vectors
     std::vector<int> start_;

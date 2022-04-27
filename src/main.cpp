@@ -13,6 +13,7 @@
 #include <omp.h>
 #include "planner.h"
 #include <chrono>
+#include <fstream>
 
 using namespace std::chrono;
 typedef std::chrono::high_resolution_clock Clock;
@@ -112,6 +113,15 @@ int main(int argc, char **argv)
 
     // save the path to a file
     planner->savePathToFile(pathFile);
+
+    // add stats data to teh test_data.csv file
+    std::ofstream outputdatafile;
+    outputdatafile.open("test_data.csv", std::ios_base::app);
+    // save all stats including planner timing data 
+    outputdatafile << mapFile << "," << numSamples << "," << numThreads << "," 
+                   << planner->getGenerationTime() << "," << planner->getConnectionTime() << "," 
+                   << planner->getQueryTime() << "," << planTime << "," << planner->getPathLength() << "," 
+                   << planner->getPathDistance() << std::endl;
 
     delete map;
     delete planner;
