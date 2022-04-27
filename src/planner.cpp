@@ -38,6 +38,7 @@ Planner::~Planner()
     //     delete this->graph_;
     // }
     std::cout << "Destroyed Planner" << std::endl;
+
 }
 
 void Planner::setNumSamples(int numSamples)
@@ -137,7 +138,7 @@ int Planner::plan(int numThreads)
         return -1;
     }
     auto end = std::chrono::high_resolution_clock::now();
-    std::cout << "Generation time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    std::cout << "Generation time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
 
     // time connection phase
     start = std::chrono::high_resolution_clock::now();
@@ -147,7 +148,7 @@ int Planner::plan(int numThreads)
         return -1;
     }
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Connection time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    std::cout << "Connection time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
     
     // time query phase
     start = std::chrono::high_resolution_clock::now();
@@ -302,6 +303,8 @@ int Planner::queryPhase(int numThreads)
     // create the waypoint vector
     std::vector<vertex_t> waypoints;
 
+    std::cout << "Starting A*" << std::endl;
+
     // Try and find a path from start to goal
     this->astar_parallel(waypoints, numThreads);
 
@@ -317,6 +320,7 @@ int Planner::queryPhase(int numThreads)
     return 0;
 }
 
+/*
 int Planner::astar(std::vector<vertex_t> &waypoints)
 {
 
@@ -412,6 +416,7 @@ int Planner::astar(std::vector<vertex_t> &waypoints)
 
     return 0;
 }
+*/
 
 int hash_fn(AstarNode *startNode, int numThreads)
 {
@@ -429,7 +434,7 @@ bool isOpenListEmpty(priority_queue<AstarNode *, vector<AstarNode *>, OpenListNo
 int isNodeInClosedList(unordered_set<AstarNode *, NodeHasher, ClosedListNodeComparator> *closedLists, int procID, AstarNode *node, std::mutex *closedListsMutex)
 {
     closedListsMutex[procID].lock();
-    int ret = closedLists[procID].find(node) != closedLists[procID].end();
+    int ret = (closedLists[procID].find(node) != closedLists[procID].end());
     closedListsMutex[procID].unlock();
     return ret;
 }
@@ -543,6 +548,8 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
                         openListsMutex[hashedProc].lock();
                         openLists[hashedProc].push(newNode);
                         openListsMutex[hashedProc].unlock();
+                    } else {
+                        delete newNode;
                     }
                 }
             }
@@ -559,27 +566,56 @@ int Planner::astar_parallel(std::vector<vertex_t> &waypoints, int numThreads)
         } while (!allOpenListsEmpty(threadDone, numThreads));
     }
 
-    
+    cout << "All threads exited" << endl;
+    bool no_path_found = false;
 
     // check if found path
     if (goalNode->parent == NULL)
     {
         cout << "No Path Found" << endl;
-        return -1;
+        no_path_found = true;
     }
 
-    // construct the path
-    AstarNode *currNode = goalNode;
-    while (currNode != NULL)
+    if (!no_path_found)
     {
-        waypoints.push_back(currNode->vertexDescriptor);
-        currNode = currNode->parent;
+        // construct the path
+        AstarNode *currNode = goalNode;
+        while (currNode != NULL)
+        {
+            waypoints.push_back(currNode->vertexDescriptor);
+            currNode = currNode->parent;
+        }
     }
+
+
+    for (int i = 0; i < numThreads; i++)
+    {
+        while (openLists[i].size() > 0)
+        {
+            AstarNode *node = openLists[i].top();
+            openLists[i].pop();
+            delete node;
+        }
+
+
+        for (auto it = closedLists[i].begin(); it != closedLists[i].end(); ++it )
+        {
+            AstarNode *node = *it;
+            delete node;
+        }
+
+        while (closedLists[i].size() > 0)
+        {
+            closedLists[i].erase(closedLists[i].begin());
+        }
+        
+    }
+
 
     // reverse the path
     reverse(waypoints.begin(), waypoints.end());
 
-    return 0;
+    return !no_path_found;
 }
 
 // interpolate the path

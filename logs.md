@@ -13,3 +13,13 @@
 - Resizing Images (Small is 500x500; Medium is 1000x1000; Large is 5000x5000)
 - Density Images are still 5000x5000
 - Planning on sampling 2%, 5%, 10% of the number of pixels for each map
+
+## 04/26/22 20:00
+### Omkar
+- Sampling 10% takes too long on dense - 5% took 1 hour
+- Planning on sampling 0.5%, 1%, 2% of the number of pixels for each map
+
+## 04/27/22 14:30
+### Prithu & Omkar
+- Density Images are rescaled to 1000x1000
+- Large is rescaled to 2000x2000

@@ -93,7 +93,7 @@ private:
 
     vertex_t addAndConnectVertex(std::vector<int> point, int &status);
 
-    int astar(std::vector<vertex_t> &waypoints);
+    // int astar(std::vector<vertex_t> &waypoints);
     int astar_parallel(std::vector<vertex_t> &waypoints, int numThreads);
 };
 
