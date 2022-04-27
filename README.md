@@ -35,13 +35,13 @@ April 14th: ~~Finalize Generation in Parallel (or not)~~, ~~Write Code for Paral
 
 April 17th: ~~Test and Finish Connection Phase in Parallel~~
 
-April 21st: Write Code for A* in Parallel
+April 21st: ~~Write Code for A* in Parallel~~
 
-April 24th: Test and Finish A* in Parallel
+April 24th: ~~Test and Finish A* in Parallel~~
 
-April 29th: Report Due
+~~April 29th: Report Due~~
 
-May 5th: Final Presentation
+May 5th: Final Presentation and Report Due
 
 ### Milestone Report
 #### 
