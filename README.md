@@ -39,7 +39,7 @@ April 21st: ~~Write Code for A* in Parallel~~
 
 April 24th: ~~Test and Finish A* in Parallel~~
 
-~~April 29th: Report Due~~
+~~April 29th: Report Due~~ _(assignment deadlines modified due to COVID 19)_
 
 May 5th: Final Presentation and Report Due
 
