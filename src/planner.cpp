@@ -272,10 +272,10 @@ int Planner::connectVertex(vertex_t vd)
             if (direction != CANT_CONNECT)
             {
                 edge_t e;
-                #pragma omp critical
-                {
+                // #pragma omp critical
+                // {
                     e = boost::add_edge(vd, vd2, this->graph_).first;
-                }
+                // }
                 this->graph_[e].distance = this->map_->getDistance(vp1.x, vp1.y, vp2.x, vp2.y);
                 this->graph_[e].direction = direction;
             }
