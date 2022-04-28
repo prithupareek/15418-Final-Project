@@ -218,7 +218,7 @@ int Planner::generationPhase(int numThreads)
 
     // int chunk_size = (this->numSamples_ + numThreads - 1) / numThreads;
 
-    // #pragma omp parallel for schedule(dynamic)
+    #pragma omp parallel for schedule(dynamic)
     for (int i = 0; i < this->numSamples_; i++)
     {        
 
