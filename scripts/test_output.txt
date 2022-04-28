@@ -16,17 +16,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 628802ns
-Connection time: 7.18011e+07ns
+Generation time: 657673ns
+Connection time: 7.23552e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.00891e+07ns
-Time taken: 0.0825659 seconds
-Path Nodes: 2131
-Path Distance: 2018
+Query time: 1.12689e+07ns
+Time taken: 0.0843334 seconds
+Path Nodes: 2192
+Path Distance: 2076
 Destroyed Planner
 Testing 2 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -42,17 +42,16 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 697501ns
-Connection time: 7.04443e+07ns
+Generation time: 2.67841e+06ns
+Connection time: 6.84981e+07ns
 Starting A*
-5001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 2.21177e+07ns
-Time taken: 0.0933052 seconds
-Path Nodes: 2267
-Path Distance: 2146
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.09649 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 4 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -68,17 +67,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 687362ns
-Connection time: 6.23538e+07ns
+Generation time: 6.2861e+06ns
+Connection time: 6.19373e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.83994e+07ns
-Time taken: 0.101476 seconds
-Path Nodes: 2230
-Path Distance: 2116
+Query time: 3.94163e+07ns
+Time taken: 0.107682 seconds
+Path Nodes: 2885
+Path Distance: 2732
 Destroyed Planner
 Testing 8 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -94,17 +93,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 697621ns
-Connection time: 6.3819e+07ns
+Generation time: 7.40156e+06ns
+Connection time: 6.0446e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.72219e+07ns
-Time taken: 0.091781 seconds
-Path Nodes: 2196
-Path Distance: 2082
+Query time: 1.76992e+07ns
+Time taken: 0.0855906 seconds
+Path Nodes: 2453
+Path Distance: 2320
 Destroyed Planner
 Testing 16 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -120,17 +119,16 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 689776ns
-Connection time: 6.71552e+07ns
+Generation time: 1.47711e+07ns
+Connection time: 7.30919e+07ns
 Starting A*
-5001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 2.30648e+07ns
-Time taken: 0.0909695 seconds
-Path Nodes: 2346
-Path Distance: 2224
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.103334 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 32 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -146,17 +144,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 681069ns
-Connection time: 6.26765e+07ns
+Generation time: 1.08865e+07ns
+Connection time: 6.59252e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.35725e+07ns
-Time taken: 0.0769663 seconds
-Path Nodes: 2297
-Path Distance: 2178
+Query time: 1.59925e+07ns
+Time taken: 0.0928749 seconds
+Path Nodes: 2325
+Path Distance: 2206
 Destroyed Planner
 Testing 64 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -172,17 +170,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 676191ns
-Connection time: 8.29015e+07ns
+Generation time: 2.17316e+07ns
+Connection time: 5.94558e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.38475e+07ns
-Time taken: 0.0974855 seconds
-Path Nodes: 2300
-Path Distance: 2190
+Query time: 9.67454e+06ns
+Time taken: 0.090927 seconds
+Path Nodes: 2312
+Path Distance: 2196
 Destroyed Planner
 Testing 128 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -198,17 +196,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 689055ns
-Connection time: 1.01252e+08ns
+Generation time: 3.58567e+07ns
+Connection time: 8.0787e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.38751e+08ns
-Time taken: 0.340809 seconds
-Path Nodes: 2259
-Path Distance: 2148
+Query time: 3.17744e+08ns
+Time taken: 0.434515 seconds
+Path Nodes: 2284
+Path Distance: 2168
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 10,000 samples
@@ -225,16 +223,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.43247e+06ns
-Connection time: 2.94947e+08ns
+Generation time: 1.54598e+06ns
+Connection time: 2.94271e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.54109e+07ns
-Time taken: 0.341852 seconds
-Path Nodes: 2111
+Query time: 2.08638e+07ns
+Time taken: 0.316756 seconds
+Path Nodes: 2110
 Path Distance: 1998
 Destroyed Planner
 Testing 2 Threads and 10,000 samples
@@ -251,17 +249,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.3488e+06ns
-Connection time: 2.84879e+08ns
+Generation time: 5.44949e+06ns
+Connection time: 2.84266e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 9.22912e+07ns
-Time taken: 0.378584 seconds
-Path Nodes: 2114
-Path Distance: 2006
+Query time: 9.57948e+07ns
+Time taken: 0.385587 seconds
+Path Nodes: 2117
+Path Distance: 2008
 Destroyed Planner
 Testing 4 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -277,17 +275,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.24723e+06ns
-Connection time: 2.46495e+08ns
+Generation time: 1.61256e+07ns
+Connection time: 2.47706e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.3866e+08ns
-Time taken: 0.386465 seconds
+Query time: 1.28102e+08ns
+Time taken: 0.391995 seconds
 Path Nodes: 2109
-Path Distance: 1998
+Path Distance: 2000
 Destroyed Planner
 Testing 8 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -303,17 +301,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.22745e+06ns
-Connection time: 2.57617e+08ns
+Generation time: 1.42277e+07ns
+Connection time: 2.53033e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.04531e+08ns
-Time taken: 0.363419 seconds
-Path Nodes: 2107
-Path Distance: 2000
+Query time: 1.12674e+08ns
+Time taken: 0.379998 seconds
+Path Nodes: 2109
+Path Distance: 2006
 Destroyed Planner
 Testing 16 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -329,17 +327,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.27927e+06ns
-Connection time: 2.99605e+08ns
+Generation time: 2.76644e+07ns
+Connection time: 2.955e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.73848e+07ns
-Time taken: 0.37832 seconds
-Path Nodes: 2109
-Path Distance: 2000
+Query time: 5.91308e+07ns
+Time taken: 0.382347 seconds
+Path Nodes: 2119
+Path Distance: 2008
 Destroyed Planner
 Testing 32 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -355,17 +353,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.33083e+06ns
-Connection time: 2.2764e+08ns
+Generation time: 1.95881e+07ns
+Connection time: 2.2492e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.08013e+07ns
-Time taken: 0.279821 seconds
-Path Nodes: 2171
-Path Distance: 2060
+Query time: 4.46981e+07ns
+Time taken: 0.289268 seconds
+Path Nodes: 2143
+Path Distance: 2032
 Destroyed Planner
 Testing 64 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -381,17 +379,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.2729e+06ns
-Connection time: 3.39289e+08ns
+Generation time: 4.09724e+07ns
+Connection time: 2.67292e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.42975e+07ns
-Time taken: 0.384982 seconds
-Path Nodes: 2311
-Path Distance: 2192
+Query time: 3.41602e+07ns
+Time taken: 0.342485 seconds
+Path Nodes: 2163
+Path Distance: 2054
 Destroyed Planner
 Testing 128 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Dense.txt
@@ -407,17 +405,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.32315e+06ns
-Connection time: 4.0596e+08ns
+Generation time: 5.33377e+07ns
+Connection time: 3.61305e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.73582e+08ns
-Time taken: 0.580935 seconds
-Path Nodes: 2274
-Path Distance: 2152
+Query time: 1.22828e+08ns
+Time taken: 0.537704 seconds
+Path Nodes: 2128
+Path Distance: 2018
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 20,000 samples
@@ -434,16 +432,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.9631e+06ns
-Connection time: 1.19462e+09ns
+Generation time: 2.89834e+06ns
+Connection time: 1.19756e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.21892e+07ns
-Time taken: 1.24984 seconds
-Path Nodes: 2119
+Query time: 3.53756e+08ns
+Time taken: 1.55431 seconds
+Path Nodes: 2111
 Path Distance: 1998
 Destroyed Planner
 Testing 2 Threads and 20,000 samples
@@ -460,16 +458,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.49768e+06ns
-Connection time: 1.06688e+09ns
+Generation time: 1.09396e+07ns
+Connection time: 1.1888e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.94853e+08ns
-Time taken: 1.56432 seconds
-Path Nodes: 2109
+Query time: 5.54044e+08ns
+Time taken: 1.75389 seconds
+Path Nodes: 2114
 Path Distance: 1998
 Destroyed Planner
 Testing 4 Threads and 20,000 samples
@@ -486,16 +484,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.58786e+06ns
-Connection time: 9.79849e+08ns
+Generation time: 2.00583e+07ns
+Connection time: 9.19543e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.11506e+08ns
-Time taken: 1.69402 seconds
-Path Nodes: 2106
+Query time: 6.57008e+08ns
+Time taken: 1.5967 seconds
+Path Nodes: 2107
 Path Distance: 1998
 Destroyed Planner
 Testing 8 Threads and 20,000 samples
@@ -512,16 +510,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.39605e+06ns
-Connection time: 1.04284e+09ns
+Generation time: 2.90142e+07ns
+Connection time: 1.05821e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.3079e+08ns
-Time taken: 1.47611 seconds
-Path Nodes: 2110
+Query time: 4.36219e+08ns
+Time taken: 1.52355 seconds
+Path Nodes: 2107
 Path Distance: 1998
 Destroyed Planner
 Testing 16 Threads and 20,000 samples
@@ -538,16 +536,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.47099e+06ns
-Connection time: 1.14047e+09ns
+Generation time: 5.50369e+07ns
+Connection time: 1.1409e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.30152e+08ns
-Time taken: 1.47317 seconds
-Path Nodes: 2118
+Query time: 3.10218e+08ns
+Time taken: 1.50624 seconds
+Path Nodes: 2110
 Path Distance: 1998
 Destroyed Planner
 Testing 32 Threads and 20,000 samples
@@ -564,16 +562,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.50006e+06ns
-Connection time: 1.22137e+09ns
+Generation time: 5.38091e+07ns
+Connection time: 1.16964e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.3303e+08ns
-Time taken: 1.45697 seconds
-Path Nodes: 2109
+Query time: 2.31899e+08ns
+Time taken: 1.45552 seconds
+Path Nodes: 2104
 Path Distance: 1998
 Destroyed Planner
 Testing 64 Threads and 20,000 samples
@@ -590,16 +588,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.51926e+06ns
-Connection time: 1.36865e+09ns
+Generation time: 4.78455e+07ns
+Connection time: 1.27046e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.45823e+08ns
-Time taken: 1.61711 seconds
-Path Nodes: 2105
+Query time: 2.32054e+08ns
+Time taken: 1.55064 seconds
+Path Nodes: 2108
 Path Distance: 1998
 Destroyed Planner
 Testing 128 Threads and 20,000 samples
@@ -616,16 +614,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.59063e+06ns
-Connection time: 1.71812e+09ns
+Generation time: 6.49914e+07ns
+Connection time: 1.70769e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.77502e+08ns
-Time taken: 1.99858 seconds
-Path Nodes: 2108
+Query time: 3.00225e+08ns
+Time taken: 2.07306 seconds
+Path Nodes: 2109
 Path Distance: 1998
 Destroyed Planner
 --------------------------------------------------------------------------------
@@ -646,16 +644,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 370937ns
-Connection time: 6.6772e+07ns
+Generation time: 386064ns
+Connection time: 6.65578e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0754 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 5.50633e+06ns
+Time taken: 0.0724903 seconds
+Path Nodes: 2277
+Path Distance: 2162
 Destroyed Planner
 Testing 2 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -671,16 +670,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 408348ns
-Connection time: 5.19041e+07ns
+Generation time: 1.57523e+06ns
+Connection time: 5.2024e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0666532 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.46362e+07ns
+Time taken: 0.0682842 seconds
+Path Nodes: 3231
+Path Distance: 3068
 Destroyed Planner
 Testing 4 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -696,14 +696,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 389412ns
-Connection time: 3.6189e+07ns
+Generation time: 3.65472e+06ns
+Connection time: 3.60809e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0590458 seconds
+Time taken: 0.0398173 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -721,16 +721,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 413237ns
-Connection time: 3.02301e+07ns
+Generation time: 6.40287e+06ns
+Connection time: 3.25487e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0467651 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.54838e+07ns
+Time taken: 0.0544766 seconds
+Path Nodes: 2484
+Path Distance: 2352
 Destroyed Planner
 Testing 16 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -746,14 +747,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 401254ns
-Connection time: 3.47203e+07ns
+Generation time: 5.47091e+06ns
+Connection time: 3.20067e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0473908 seconds
+Time taken: 0.0495081 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -771,14 +772,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 383791ns
-Connection time: 3.16315e+07ns
+Generation time: 1.85823e+07ns
+Connection time: 3.53874e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0409146 seconds
+Time taken: 0.0542414 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -796,16 +797,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 390404ns
-Connection time: 4.19436e+07ns
+Generation time: 2.49723e+07ns
+Connection time: 3.42013e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0502256 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.21081e+08ns
+Time taken: 0.180328 seconds
+Path Nodes: 2570
+Path Distance: 2438
 Destroyed Planner
 Testing 128 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -821,14 +823,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 430419ns
-Connection time: 7.39037e+07ns
+Generation time: 2.71641e+07ns
+Connection time: 4.89654e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.557968 seconds
+Time taken: 0.158932 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -847,16 +849,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 993567ns
-Connection time: 2.73681e+08ns
+Generation time: 921047ns
+Connection time: 2.71289e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.02838e+07ns
-Time taken: 0.285008 seconds
-Path Nodes: 2103
+Query time: 1.02175e+07ns
+Time taken: 0.282499 seconds
+Path Nodes: 2107
 Path Distance: 1998
 Destroyed Planner
 Testing 2 Threads and 10,000 samples
@@ -873,17 +875,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 640183ns
-Connection time: 1.91039e+08ns
+Generation time: 2.93975e+06ns
+Connection time: 1.91012e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.22526e+07ns
-Time taken: 0.21398 seconds
-Path Nodes: 2315
-Path Distance: 2192
+Query time: 5.13898e+07ns
+Time taken: 0.245403 seconds
+Path Nodes: 2211
+Path Distance: 2094
 Destroyed Planner
 Testing 4 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -899,16 +901,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 667805ns
-Connection time: 1.39264e+08ns
+Generation time: 7.0066e+06ns
+Connection time: 1.39153e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 8.78031e+07ns
-Time taken: 0.227779 seconds
-Path Nodes: 2107
+Query time: 4.73073e+07ns
+Time taken: 0.193507 seconds
+Path Nodes: 2108
 Path Distance: 1998
 Destroyed Planner
 Testing 8 Threads and 10,000 samples
@@ -925,17 +927,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 759568ns
-Connection time: 1.27508e+08ns
+Generation time: 8.37231e+06ns
+Connection time: 1.28719e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.94309e+07ns
-Time taken: 0.187739 seconds
-Path Nodes: 2124
-Path Distance: 2012
+Query time: 5.75392e+07ns
+Time taken: 0.19468 seconds
+Path Nodes: 2112
+Path Distance: 2000
 Destroyed Planner
 Testing 16 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -951,16 +953,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 754388ns
-Connection time: 1.38917e+08ns
+Generation time: 1.27736e+07ns
+Connection time: 1.20766e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.52342e+07ns
-Time taken: 0.174958 seconds
-Path Nodes: 2113
+Query time: 2.55561e+07ns
+Time taken: 0.159166 seconds
+Path Nodes: 2112
 Path Distance: 2004
 Destroyed Planner
 Testing 32 Threads and 10,000 samples
@@ -977,17 +979,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 739550ns
-Connection time: 1.24958e+08ns
+Generation time: 1.09025e+07ns
+Connection time: 1.2383e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.30122e+07ns
-Time taken: 0.148766 seconds
-Path Nodes: 2109
-Path Distance: 2002
+Query time: 1.94282e+07ns
+Time taken: 0.154218 seconds
+Path Nodes: 2120
+Path Distance: 2010
 Destroyed Planner
 Testing 64 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -1003,17 +1005,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 737296ns
-Connection time: 1.49976e+08ns
+Generation time: 2.19089e+07ns
+Connection time: 1.58232e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.61918e+07ns
-Time taken: 0.177097 seconds
-Path Nodes: 2122
-Path Distance: 2012
+Query time: 3.14755e+07ns
+Time taken: 0.211825 seconds
+Path Nodes: 2126
+Path Distance: 2018
 Destroyed Planner
 Testing 128 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Empty.txt
@@ -1029,17 +1031,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 779084ns
-Connection time: 2.02619e+08ns
+Generation time: 4.69279e+07ns
+Connection time: 1.8695e+08ns
 Starting A*
-10001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 1.84989e+08ns
-Time taken: 0.388649 seconds
-Path Nodes: 2172
-Path Distance: 2060
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.449601 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 20,000 samples
@@ -1056,16 +1057,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.64225e+06ns
-Connection time: 1.10124e+09ns
+Generation time: 1.53593e+06ns
+Connection time: 1.09224e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.78101e+07ns
-Time taken: 1.13077 seconds
-Path Nodes: 2109
+Query time: 2.50159e+07ns
+Time taken: 1.11889 seconds
+Path Nodes: 2110
 Path Distance: 1998
 Destroyed Planner
 Testing 2 Threads and 20,000 samples
@@ -1082,16 +1083,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.48979e+06ns
-Connection time: 7.97127e+08ns
+Generation time: 5.80622e+06ns
+Connection time: 7.62513e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.12825e+07ns
-Time taken: 0.829961 seconds
-Path Nodes: 2112
+Query time: 2.0239e+08ns
+Time taken: 0.970799 seconds
+Path Nodes: 2109
 Path Distance: 1998
 Destroyed Planner
 Testing 4 Threads and 20,000 samples
@@ -1108,16 +1109,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.44602e+06ns
-Connection time: 5.48507e+08ns
+Generation time: 1.46444e+07ns
+Connection time: 5.52032e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.15381e+08ns
-Time taken: 0.865419 seconds
-Path Nodes: 2104
+Query time: 2.8473e+08ns
+Time taken: 0.851492 seconds
+Path Nodes: 2111
 Path Distance: 1998
 Destroyed Planner
 Testing 8 Threads and 20,000 samples
@@ -1134,16 +1135,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.48018e+06ns
-Connection time: 4.9883e+08ns
+Generation time: 1.49384e+07ns
+Connection time: 5.10118e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.2916e+08ns
-Time taken: 0.729534 seconds
-Path Nodes: 2107
+Query time: 2.90905e+08ns
+Time taken: 0.816043 seconds
+Path Nodes: 2110
 Path Distance: 1998
 Destroyed Planner
 Testing 16 Threads and 20,000 samples
@@ -1160,16 +1161,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.40865e+06ns
-Connection time: 5.35358e+08ns
+Generation time: 1.75332e+07ns
+Connection time: 5.31054e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.42153e+08ns
-Time taken: 0.678968 seconds
-Path Nodes: 2109
+Query time: 1.68883e+08ns
+Time taken: 0.717538 seconds
+Path Nodes: 2112
 Path Distance: 1998
 Destroyed Planner
 Testing 32 Threads and 20,000 samples
@@ -1186,16 +1187,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.42235e+06ns
-Connection time: 4.57803e+08ns
+Generation time: 1.96624e+07ns
+Connection time: 4.80085e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 9.51668e+07ns
-Time taken: 0.554453 seconds
-Path Nodes: 2111
+Query time: 9.12883e+07ns
+Time taken: 0.591112 seconds
+Path Nodes: 2107
 Path Distance: 1998
 Destroyed Planner
 Testing 64 Threads and 20,000 samples
@@ -1212,16 +1213,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.38926e+06ns
-Connection time: 5.63092e+08ns
+Generation time: 3.43975e+07ns
+Connection time: 6.08841e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.23129e+08ns
-Time taken: 0.687717 seconds
-Path Nodes: 2102
+Query time: 1.08779e+08ns
+Time taken: 0.752103 seconds
+Path Nodes: 2107
 Path Distance: 1998
 Destroyed Planner
 Testing 128 Threads and 20,000 samples
@@ -1238,17 +1239,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.6021e+06ns
-Connection time: 6.52339e+08ns
+Generation time: 4.74232e+07ns
+Connection time: 6.50398e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.11747e+08ns
-Time taken: 0.765785 seconds
-Path Nodes: 2109
-Path Distance: 2004
+Query time: 1.15416e+08ns
+Time taken: 0.813354 seconds
+Path Nodes: 2106
+Path Distance: 1998
 Destroyed Planner
 --------------------------------------------------------------------------------
 Done.
@@ -1268,16 +1269,17 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.33399e+06ns
-Connection time: 1.03175e+09ns
+Generation time: 3.36225e+06ns
+Connection time: 1.0372e+09ns
 Starting A*
+20001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 1.03528 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 3.67709e+07ns
+Time taken: 1.07742 seconds
+Path Nodes: 4547
+Path Distance: 4308
 Destroyed Planner
 Testing 2 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1293,14 +1295,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.43381e+06ns
-Connection time: 5.94617e+08ns
+Generation time: 1.04507e+07ns
+Connection time: 5.99241e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.688134 seconds
+Time taken: 0.695109 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1318,14 +1320,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.2414e+06ns
-Connection time: 3.32352e+08ns
+Generation time: 2.49464e+07ns
+Connection time: 3.4703e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.335786 seconds
+Time taken: 0.501884 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1343,14 +1345,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.35041e+06ns
-Connection time: 2.28142e+08ns
+Generation time: 3.30631e+07ns
+Connection time: 2.2314e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.231669 seconds
+Time taken: 0.342383 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1368,14 +1370,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.14312e+06ns
-Connection time: 2.44885e+08ns
+Generation time: 2.7559e+07ns
+Connection time: 2.17732e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.248272 seconds
+Time taken: 0.306858 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1393,14 +1395,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.68811e+06ns
-Connection time: 1.88515e+08ns
+Generation time: 4.50095e+07ns
+Connection time: 2.70134e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.234415 seconds
+Time taken: 0.36709 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1418,14 +1420,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.75332e+06ns
-Connection time: 2.11666e+08ns
+Generation time: 4.96546e+07ns
+Connection time: 2.04787e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.268201 seconds
+Time taken: 0.254807 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1443,14 +1445,14 @@ Planning
 Sampling 20000 points
 Map width: 2000
 Map height: 2000
-Generation time: 3.72558e+06ns
-Connection time: 2.32124e+08ns
+Generation time: 6.41656e+07ns
+Connection time: 2.41311e+08ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.665225 seconds
+Time taken: 0.342395 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1469,16 +1471,16 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 8.17946e+06ns
-Connection time: 4.18138e+09ns
+Generation time: 8.54193e+06ns
+Connection time: 4.21394e+09ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.3451e+08ns
-Time taken: 4.32416 seconds
-Path Nodes: 4241
+Query time: 1.50581e+08ns
+Time taken: 4.37317 seconds
+Path Nodes: 4237
 Path Distance: 4020
 Destroyed Planner
 Testing 2 Threads and 40,000 samples
@@ -1495,17 +1497,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 6.32213e+06ns
-Connection time: 2.37413e+09ns
+Generation time: 1.86879e+07ns
+Connection time: 2.32923e+09ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.77058e+08ns
-Time taken: 2.75762 seconds
-Path Nodes: 4397
-Path Distance: 4170
+Query time: 4.8133e+07ns
+Time taken: 2.39615 seconds
+Path Nodes: 4321
+Path Distance: 4094
 Destroyed Planner
 Testing 4 Threads and 40,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1521,17 +1523,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 6.13504e+06ns
-Connection time: 1.36188e+09ns
+Generation time: 3.9442e+07ns
+Connection time: 1.3889e+09ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.93216e+08ns
-Time taken: 1.66133 seconds
-Path Nodes: 4261
-Path Distance: 4042
+Query time: 3.83501e+08ns
+Time taken: 1.81195 seconds
+Path Nodes: 4543
+Path Distance: 4306
 Destroyed Planner
 Testing 8 Threads and 40,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1547,17 +1549,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 6.18468e+06ns
-Connection time: 8.88534e+08ns
+Generation time: 4.66204e+07ns
+Connection time: 9.06073e+08ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.33177e+08ns
-Time taken: 1.12799 seconds
-Path Nodes: 4277
-Path Distance: 4056
+Query time: 3.38309e+08ns
+Time taken: 1.29111 seconds
+Path Nodes: 4373
+Path Distance: 4148
 Destroyed Planner
 Testing 16 Threads and 40,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1573,17 +1575,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 6.06989e+06ns
-Connection time: 8.47742e+08ns
+Generation time: 5.07392e+07ns
+Connection time: 8.42407e+08ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.61572e+08ns
-Time taken: 1.01547 seconds
-Path Nodes: 4283
-Path Distance: 4060
+Query time: 1.38685e+08ns
+Time taken: 1.03191 seconds
+Path Nodes: 4268
+Path Distance: 4050
 Destroyed Planner
 Testing 32 Threads and 40,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1599,17 +1601,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 6.06454e+06ns
-Connection time: 7.30545e+08ns
+Generation time: 5.32842e+07ns
+Connection time: 8.62004e+08ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.07567e+08ns
-Time taken: 0.844264 seconds
-Path Nodes: 4297
-Path Distance: 4078
+Query time: 1.12454e+08ns
+Time taken: 1.02784 seconds
+Path Nodes: 4346
+Path Distance: 4126
 Destroyed Planner
 Testing 64 Threads and 40,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1625,17 +1627,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 7.73915e+06ns
-Connection time: 9.80929e+08ns
+Generation time: 8.43475e+07ns
+Connection time: 9.0499e+08ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.12731e+08ns
-Time taken: 1.10152 seconds
-Path Nodes: 4516
-Path Distance: 4282
+Query time: 1.865e+08ns
+Time taken: 1.17597 seconds
+Path Nodes: 4318
+Path Distance: 4094
 Destroyed Planner
 Testing 128 Threads and 40,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1651,17 +1653,17 @@ Planning
 Sampling 40000 points
 Map width: 2000
 Map height: 2000
-Generation time: 6.34903e+06ns
-Connection time: 9.13895e+08ns
+Generation time: 8.6562e+07ns
+Connection time: 9.17995e+08ns
 Starting A*
 40001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.12725e+08ns
-Time taken: 1.23307 seconds
-Path Nodes: 4545
-Path Distance: 4312
+Query time: 3.64696e+08ns
+Time taken: 1.36938 seconds
+Path Nodes: 4542
+Path Distance: 4308
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 80,000 samples
@@ -1678,17 +1680,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.5143e+07ns
-Connection time: 1.65332e+10ns
+Generation time: 1.61314e+07ns
+Connection time: 1.66311e+10ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.76254e+08ns
-Time taken: 16.7247 seconds
-Path Nodes: 4230
-Path Distance: 3998
+Query time: 8.15658e+08ns
+Time taken: 17.463 seconds
+Path Nodes: 4228
+Path Distance: 4004
 Destroyed Planner
 Testing 2 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1704,17 +1706,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.19587e+07ns
-Connection time: 9.22937e+09ns
+Generation time: 3.58563e+07ns
+Connection time: 9.49823e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.31493e+09ns
-Time taken: 10.5564 seconds
-Path Nodes: 4225
-Path Distance: 4008
+Query time: 1.29102e+09ns
+Time taken: 10.8253 seconds
+Path Nodes: 4221
+Path Distance: 4000
 Destroyed Planner
 Testing 4 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1730,17 +1732,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.21487e+07ns
-Connection time: 5.97278e+09ns
+Generation time: 6.97106e+07ns
+Connection time: 6.16913e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.71422e+09ns
-Time taken: 8.69932 seconds
-Path Nodes: 4213
-Path Distance: 4002
+Query time: 2.81595e+09ns
+Time taken: 9.05497 seconds
+Path Nodes: 4219
+Path Distance: 4004
 Destroyed Planner
 Testing 8 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1756,17 +1758,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.31905e+07ns
-Connection time: 3.87975e+09ns
+Generation time: 8.15003e+07ns
+Connection time: 3.77037e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.45709e+09ns
-Time taken: 5.35016 seconds
-Path Nodes: 4219
-Path Distance: 3998
+Query time: 2.01929e+09ns
+Time taken: 5.87127 seconds
+Path Nodes: 4217
+Path Distance: 4000
 Destroyed Planner
 Testing 16 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1782,17 +1784,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.13295e+07ns
-Connection time: 3.67431e+09ns
+Generation time: 1.34436e+08ns
+Connection time: 3.31686e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.0661e+09ns
-Time taken: 4.75187 seconds
-Path Nodes: 4228
-Path Distance: 4010
+Query time: 8.82804e+08ns
+Time taken: 4.33425 seconds
+Path Nodes: 4218
+Path Distance: 3998
 Destroyed Planner
 Testing 32 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1808,17 +1810,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.24421e+07ns
-Connection time: 3.8578e+09ns
+Generation time: 1.3542e+08ns
+Connection time: 3.81667e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 6.6643e+08ns
-Time taken: 4.53681 seconds
-Path Nodes: 4222
-Path Distance: 4008
+Query time: 7.47273e+08ns
+Time taken: 4.69948 seconds
+Path Nodes: 4214
+Path Distance: 3998
 Destroyed Planner
 Testing 64 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1834,17 +1836,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.1978e+07ns
-Connection time: 3.82169e+09ns
+Generation time: 1.33546e+08ns
+Connection time: 3.68545e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.14209e+08ns
-Time taken: 4.34801 seconds
-Path Nodes: 4217
-Path Distance: 4000
+Query time: 5.96955e+08ns
+Time taken: 4.4161 seconds
+Path Nodes: 4222
+Path Distance: 3998
 Destroyed Planner
 Testing 128 Threads and 80,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Large.txt
@@ -1860,17 +1862,17 @@ Planning
 Sampling 80000 points
 Map width: 2000
 Map height: 2000
-Generation time: 1.25968e+07ns
-Connection time: 4.09894e+09ns
+Generation time: 1.67912e+08ns
+Connection time: 4.20143e+09ns
 Starting A*
 80001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.7192e+08ns
-Time taken: 4.68403 seconds
-Path Nodes: 4215
-Path Distance: 3998
+Query time: 8.35621e+08ns
+Time taken: 5.20542 seconds
+Path Nodes: 4227
+Path Distance: 4008
 Destroyed Planner
 --------------------------------------------------------------------------------
 Done.
@@ -1890,14 +1892,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 477728ns
-Connection time: 6.87147e+07ns
+Generation time: 495729ns
+Connection time: 6.82592e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0799841 seconds
+Time taken: 0.0799614 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1915,14 +1917,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 514797ns
-Connection time: 5.81064e+07ns
+Generation time: 2.52334e+06ns
+Connection time: 5.84781e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0763024 seconds
+Time taken: 0.0788927 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1940,14 +1942,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 518264ns
-Connection time: 4.09358e+07ns
+Generation time: 4.19349e+06ns
+Connection time: 4.43212e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0679586 seconds
+Time taken: 0.0765373 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1965,14 +1967,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 509617ns
-Connection time: 4.25715e+07ns
+Generation time: 8.90629e+06ns
+Connection time: 4.42328e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0644088 seconds
+Time taken: 0.0757338 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -1990,16 +1992,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 496463ns
-Connection time: 4.54395e+07ns
+Generation time: 9.4766e+06ns
+Connection time: 4.33887e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.061574 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.38857e+07ns
+Time taken: 0.0667949 seconds
+Path Nodes: 2667
+Path Distance: 2530
 Destroyed Planner
 Testing 32 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2015,14 +2018,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 489220ns
-Connection time: 3.85531e+07ns
+Generation time: 1.01751e+07ns
+Connection time: 3.76715e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0490118 seconds
+Time taken: 0.0578382 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2040,16 +2043,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 506231ns
-Connection time: 5.26221e+07ns
+Generation time: 2.16686e+07ns
+Connection time: 4.56835e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0636833 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 9.99992e+06ns
+Time taken: 0.0774017 seconds
+Path Nodes: 2438
+Path Distance: 2316
 Destroyed Planner
 Testing 128 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2065,14 +2069,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 541939ns
-Connection time: 8.74686e+07ns
+Generation time: 3.24278e+07ns
+Connection time: 7.40475e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.410544 seconds
+Time taken: 0.603461 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2091,17 +2095,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.16976e+06ns
-Connection time: 2.7618e+08ns
+Generation time: 1.07537e+06ns
+Connection time: 2.78668e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.4184e+07ns
-Time taken: 0.321595 seconds
-Path Nodes: 2130
-Path Distance: 2016
+Query time: 4.41037e+07ns
+Time taken: 0.323921 seconds
+Path Nodes: 2127
+Path Distance: 2014
 Destroyed Planner
 Testing 2 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2117,17 +2121,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.02242e+06ns
-Connection time: 2.16675e+08ns
+Generation time: 4.1003e+06ns
+Connection time: 2.29204e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.50308e+07ns
-Time taken: 0.292792 seconds
-Path Nodes: 2254
-Path Distance: 2138
+Query time: 7.33168e+07ns
+Time taken: 0.30668 seconds
+Path Nodes: 2214
+Path Distance: 2092
 Destroyed Planner
 Testing 4 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2143,17 +2147,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 991554ns
-Connection time: 1.72924e+08ns
+Generation time: 1.05979e+07ns
+Connection time: 1.74629e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.12989e+08ns
-Time taken: 0.286958 seconds
-Path Nodes: 2209
-Path Distance: 2096
+Query time: 7.06287e+07ns
+Time taken: 0.255913 seconds
+Path Nodes: 2164
+Path Distance: 2050
 Destroyed Planner
 Testing 8 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2169,17 +2173,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 986164ns
-Connection time: 1.60389e+08ns
+Generation time: 1.69695e+07ns
+Connection time: 1.81885e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 8.47715e+07ns
-Time taken: 0.246193 seconds
-Path Nodes: 2170
-Path Distance: 2050
+Query time: 5.69433e+07ns
+Time taken: 0.255848 seconds
+Path Nodes: 2122
+Path Distance: 2012
 Destroyed Planner
 Testing 16 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2195,17 +2199,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 972247ns
-Connection time: 1.89272e+08ns
+Generation time: 1.29739e+07ns
+Connection time: 1.73544e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.40463e+07ns
-Time taken: 0.244342 seconds
-Path Nodes: 2142
-Path Distance: 2032
+Query time: 4.83687e+07ns
+Time taken: 0.234945 seconds
+Path Nodes: 2153
+Path Distance: 2040
 Destroyed Planner
 Testing 32 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2221,17 +2225,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 917745ns
-Connection time: 1.57835e+08ns
+Generation time: 1.36313e+07ns
+Connection time: 1.6116e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.0848e+07ns
-Time taken: 0.189642 seconds
-Path Nodes: 2251
-Path Distance: 2132
+Query time: 2.34238e+07ns
+Time taken: 0.198271 seconds
+Path Nodes: 2142
+Path Distance: 2034
 Destroyed Planner
 Testing 64 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2247,17 +2251,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 968280ns
-Connection time: 2.17588e+08ns
+Generation time: 3.11599e+07ns
+Connection time: 1.80821e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 6.41939e+07ns
-Time taken: 0.282822 seconds
-Path Nodes: 2269
-Path Distance: 2154
+Query time: 2.38161e+07ns
+Time taken: 0.235922 seconds
+Path Nodes: 2242
+Path Distance: 2130
 Destroyed Planner
 Testing 128 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2273,17 +2277,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.00085e+06ns
-Connection time: 2.45784e+08ns
+Generation time: 4.50722e+07ns
+Connection time: 2.63543e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.75918e+08ns
-Time taken: 0.422842 seconds
-Path Nodes: 2249
-Path Distance: 2136
+Query time: 1.30503e+08ns
+Time taken: 0.439201 seconds
+Path Nodes: 2296
+Path Distance: 2180
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 20,000 samples
@@ -2300,15 +2304,15 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.13205e+06ns
-Connection time: 1.13094e+09ns
+Generation time: 2.18194e+06ns
+Connection time: 1.1322e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 9.61458e+07ns
-Time taken: 1.22929 seconds
+Query time: 8.60294e+07ns
+Time taken: 1.22048 seconds
 Path Nodes: 2111
 Path Distance: 1998
 Destroyed Planner
@@ -2326,17 +2330,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.78314e+06ns
-Connection time: 9.01296e+08ns
+Generation time: 7.53217e+06ns
+Connection time: 9.09754e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.74935e+08ns
-Time taken: 1.2781 seconds
-Path Nodes: 2118
-Path Distance: 2004
+Query time: 3.19288e+08ns
+Time taken: 1.23667 seconds
+Path Nodes: 2116
+Path Distance: 2002
 Destroyed Planner
 Testing 4 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2352,17 +2356,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.80014e+06ns
-Connection time: 6.48027e+08ns
+Generation time: 1.86512e+07ns
+Connection time: 6.85313e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.41539e+08ns
-Time taken: 1.09144 seconds
-Path Nodes: 2113
-Path Distance: 2004
+Query time: 3.82853e+08ns
+Time taken: 1.08691 seconds
+Path Nodes: 2106
+Path Distance: 1998
 Destroyed Planner
 Testing 8 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2378,16 +2382,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.81271e+06ns
-Connection time: 6.55554e+08ns
+Generation time: 2.02795e+07ns
+Connection time: 6.96379e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.89127e+08ns
-Time taken: 0.946573 seconds
-Path Nodes: 2107
+Query time: 2.89663e+08ns
+Time taken: 1.00641 seconds
+Path Nodes: 2109
 Path Distance: 1998
 Destroyed Planner
 Testing 16 Threads and 20,000 samples
@@ -2404,17 +2408,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.82382e+06ns
-Connection time: 7.09867e+08ns
+Generation time: 3.33309e+07ns
+Connection time: 7.26329e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.04787e+08ns
-Time taken: 0.916545 seconds
-Path Nodes: 2117
-Path Distance: 2008
+Query time: 2.06193e+08ns
+Time taken: 0.965939 seconds
+Path Nodes: 2112
+Path Distance: 2006
 Destroyed Planner
 Testing 32 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2430,17 +2434,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.76628e+06ns
-Connection time: 9.00605e+08ns
+Generation time: 2.59354e+07ns
+Connection time: 6.33589e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.44705e+08ns
-Time taken: 1.04714 seconds
-Path Nodes: 2127
-Path Distance: 2014
+Query time: 1.26015e+08ns
+Time taken: 0.785611 seconds
+Path Nodes: 2116
+Path Distance: 2002
 Destroyed Planner
 Testing 64 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2456,17 +2460,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.9416e+06ns
-Connection time: 7.50559e+08ns
+Generation time: 4.72759e+07ns
+Connection time: 6.68169e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.04834e+08ns
-Time taken: 0.85747 seconds
-Path Nodes: 2124
-Path Distance: 2016
+Query time: 1.21654e+08ns
+Time taken: 0.837184 seconds
+Path Nodes: 2105
+Path Distance: 2000
 Destroyed Planner
 Testing 128 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Medium_Density.txt
@@ -2482,17 +2486,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.7957e+06ns
-Connection time: 8.97778e+08ns
+Generation time: 4.59182e+07ns
+Connection time: 7.4526e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.18148e+08ns
-Time taken: 1.01787 seconds
-Path Nodes: 2148
-Path Distance: 2040
+Query time: 1.57992e+08ns
+Time taken: 0.949304 seconds
+Path Nodes: 2129
+Path Distance: 2022
 Destroyed Planner
 --------------------------------------------------------------------------------
 Done.
@@ -2512,17 +2516,16 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 518906ns
-Connection time: 6.87151e+07ns
+Generation time: 508944ns
+Connection time: 6.87652e+07ns
 Starting A*
-5001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 3.29482e+06ns
-Time taken: 0.0725791 seconds
-Path Nodes: 2539
-Path Distance: 2400
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.069565 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 2 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2538,14 +2541,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 535416ns
-Connection time: 5.87359e+07ns
+Generation time: 2.5263e+06ns
+Connection time: 5.48928e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0595437 seconds
+Time taken: 0.0745858 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2563,14 +2566,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 502564ns
-Connection time: 4.42712e+07ns
+Generation time: 4.46375e+06ns
+Connection time: 4.2233e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0452061 seconds
+Time taken: 0.0468431 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2588,14 +2591,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 509337ns
-Connection time: 4.31358e+07ns
+Generation time: 6.14917e+06ns
+Connection time: 4.30649e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0439876 seconds
+Time taken: 0.0724314 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2613,16 +2616,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 494359ns
-Connection time: 4.70388e+07ns
+Generation time: 9.54804e+06ns
+Connection time: 4.37367e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0480229 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.48608e+07ns
+Time taken: 0.0681922 seconds
+Path Nodes: 2400
+Path Distance: 2274
 Destroyed Planner
 Testing 32 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2638,14 +2642,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 503917ns
-Connection time: 5.48074e+07ns
+Generation time: 1.02029e+07ns
+Connection time: 3.8327e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0560514 seconds
+Time taken: 0.0588861 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2663,14 +2667,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 522482ns
-Connection time: 6.21675e+07ns
+Generation time: 2.1787e+07ns
+Connection time: 4.58642e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.067831 seconds
+Time taken: 0.0760628 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2688,14 +2692,14 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 721917ns
-Connection time: 6.3767e+07ns
+Generation time: 2.57328e+07ns
+Connection time: 6.16398e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.157413 seconds
+Time taken: 0.678637 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -2714,17 +2718,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.00898e+06ns
-Connection time: 2.76688e+08ns
+Generation time: 1.20506e+06ns
+Connection time: 2.7832e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.85041e+07ns
-Time taken: 0.31626 seconds
-Path Nodes: 2125
-Path Distance: 2012
+Query time: 3.9147e+07ns
+Time taken: 0.318751 seconds
+Path Nodes: 2137
+Path Distance: 2024
 Destroyed Planner
 Testing 2 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2740,17 +2744,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 951448ns
-Connection time: 2.30538e+08ns
+Generation time: 3.78696e+06ns
+Connection time: 2.15516e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.74048e+07ns
-Time taken: 0.308954 seconds
-Path Nodes: 2460
-Path Distance: 2326
+Query time: 2.69765e+07ns
+Time taken: 0.24634 seconds
+Path Nodes: 2373
+Path Distance: 2246
 Destroyed Planner
 Testing 4 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2766,17 +2770,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 971947ns
-Connection time: 1.72859e+08ns
+Generation time: 1.01336e+07ns
+Connection time: 1.579e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.26717e+07ns
-Time taken: 0.24655 seconds
-Path Nodes: 2156
-Path Distance: 2040
+Query time: 7.95111e+07ns
+Time taken: 0.247593 seconds
+Path Nodes: 2167
+Path Distance: 2050
 Destroyed Planner
 Testing 8 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2792,17 +2796,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 942151ns
-Connection time: 1.83683e+08ns
+Generation time: 1.61305e+07ns
+Connection time: 1.55197e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 6.18242e+07ns
-Time taken: 0.246488 seconds
-Path Nodes: 2147
-Path Distance: 2036
+Query time: 5.58495e+07ns
+Time taken: 0.227282 seconds
+Path Nodes: 2175
+Path Distance: 2062
 Destroyed Planner
 Testing 16 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2818,17 +2822,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 967819ns
-Connection time: 1.87771e+08ns
+Generation time: 1.32199e+07ns
+Connection time: 1.89261e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.8032e+07ns
-Time taken: 0.226833 seconds
-Path Nodes: 2154
-Path Distance: 2044
+Query time: 5.82386e+07ns
+Time taken: 0.260777 seconds
+Path Nodes: 2177
+Path Distance: 2064
 Destroyed Planner
 Testing 32 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2844,17 +2848,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 962199ns
-Connection time: 1.56325e+08ns
+Generation time: 1.45167e+07ns
+Connection time: 1.61197e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.27001e+07ns
-Time taken: 0.180036 seconds
-Path Nodes: 2176
-Path Distance: 2062
+Query time: 2.67593e+07ns
+Time taken: 0.202519 seconds
+Path Nodes: 2259
+Path Distance: 2146
 Destroyed Planner
 Testing 64 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2870,17 +2874,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 984070ns
-Connection time: 2.09259e+08ns
+Generation time: 3.0421e+07ns
+Connection time: 1.82223e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.59985e+07ns
-Time taken: 0.266326 seconds
-Path Nodes: 2232
-Path Distance: 2118
+Query time: 5.03855e+07ns
+Time taken: 0.263078 seconds
+Path Nodes: 2204
+Path Distance: 2092
 Destroyed Planner
 Testing 128 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2896,17 +2900,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 976376ns
-Connection time: 2.50732e+08ns
+Generation time: 4.65847e+07ns
+Connection time: 2.03559e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.39157e+08ns
-Time taken: 0.390942 seconds
-Path Nodes: 2293
-Path Distance: 2174
+Query time: 2.19376e+08ns
+Time taken: 0.469601 seconds
+Path Nodes: 2278
+Path Distance: 2164
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 20,000 samples
@@ -2923,15 +2927,15 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.06798e+06ns
-Connection time: 1.12875e+09ns
+Generation time: 2.22264e+06ns
+Connection time: 1.13113e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.04775e+08ns
-Time taken: 1.23567 seconds
+Query time: 5.11753e+07ns
+Time taken: 1.18461 seconds
 Path Nodes: 2112
 Path Distance: 1998
 Destroyed Planner
@@ -2949,17 +2953,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.82632e+06ns
-Connection time: 8.68271e+08ns
+Generation time: 6.71352e+06ns
+Connection time: 8.58431e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.10966e+08ns
-Time taken: 1.18115 seconds
-Path Nodes: 2114
-Path Distance: 2002
+Query time: 3.49019e+08ns
+Time taken: 1.21426 seconds
+Path Nodes: 2118
+Path Distance: 2006
 Destroyed Planner
 Testing 4 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -2975,17 +2979,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.76487e+06ns
-Connection time: 6.64023e+08ns
+Generation time: 1.86942e+07ns
+Connection time: 6.2792e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.612e+08ns
-Time taken: 1.02706 seconds
-Path Nodes: 2118
-Path Distance: 2006
+Query time: 4.11675e+08ns
+Time taken: 1.05838 seconds
+Path Nodes: 2106
+Path Distance: 2000
 Destroyed Planner
 Testing 8 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -3001,17 +3005,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.80499e+06ns
-Connection time: 6.66493e+08ns
+Generation time: 1.88396e+07ns
+Connection time: 6.61295e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.20394e+08ns
-Time taken: 0.888762 seconds
-Path Nodes: 2118
-Path Distance: 2010
+Query time: 3.8722e+08ns
+Time taken: 1.06744 seconds
+Path Nodes: 2108
+Path Distance: 1998
 Destroyed Planner
 Testing 16 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -3027,17 +3031,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.84588e+06ns
-Connection time: 7.26553e+08ns
+Generation time: 3.40888e+07ns
+Connection time: 7.20838e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.00694e+08ns
-Time taken: 0.929147 seconds
-Path Nodes: 2118
-Path Distance: 2010
+Query time: 1.99347e+08ns
+Time taken: 0.954348 seconds
+Path Nodes: 2109
+Path Distance: 2000
 Destroyed Planner
 Testing 32 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -3053,17 +3057,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.82186e+06ns
-Connection time: 6.15023e+08ns
+Generation time: 3.45873e+07ns
+Connection time: 6.26906e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.29906e+08ns
-Time taken: 0.746814 seconds
-Path Nodes: 2111
-Path Distance: 1998
+Query time: 5.93971e+07ns
+Time taken: 0.720946 seconds
+Path Nodes: 2240
+Path Distance: 2124
 Destroyed Planner
 Testing 64 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -3079,17 +3083,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.89168e+06ns
-Connection time: 7.50587e+08ns
+Generation time: 2.77823e+07ns
+Connection time: 5.17158e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.08277e+08ns
-Time taken: 0.860939 seconds
-Path Nodes: 2184
-Path Distance: 2070
+Query time: 1.33412e+08ns
+Time taken: 0.678456 seconds
+Path Nodes: 2118
+Path Distance: 2008
 Destroyed Planner
 Testing 128 Threads and 20,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Medium.txt
@@ -3105,17 +3109,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 2.36863e+06ns
-Connection time: 9.40104e+08ns
+Generation time: 6.61628e+07ns
+Connection time: 9.47551e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.29559e+08ns
-Time taken: 1.07214 seconds
-Path Nodes: 2133
-Path Distance: 2022
+Query time: 2.49103e+08ns
+Time taken: 1.26295 seconds
+Path Nodes: 2125
+Path Distance: 2016
 Destroyed Planner
 --------------------------------------------------------------------------------
 Done.
@@ -3135,17 +3139,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 125727ns
-Connection time: 5.73064e+06ns
+Generation time: 136706ns
+Connection time: 5.78809e+06ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 1.86088e+06ns
-Time taken: 0.00775115 seconds
-Path Nodes: 1450
-Path Distance: 1372
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.00848933 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 2 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3161,17 +3164,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 132990ns
-Connection time: 9.55945e+06ns
+Generation time: 489608ns
+Connection time: 9.5932e+06ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 4.04792e+06ns
-Time taken: 0.0137809 seconds
-Path Nodes: 1722
-Path Distance: 1632
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0143866 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 4 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3187,17 +3189,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 131407ns
-Connection time: 8.64593e+06ns
+Generation time: 1.75932e+06ns
+Connection time: 9.16154e+06ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 6.55617e+06ns
-Time taken: 0.0153678 seconds
-Path Nodes: 1532
-Path Distance: 1454
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0111184 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 8 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3213,17 +3214,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 130615ns
-Connection time: 9.73534e+06ns
+Generation time: 2.46891e+06ns
+Connection time: 9.62126e+06ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 5.43146e+06ns
-Time taken: 0.0153293 seconds
-Path Nodes: 1564
-Path Distance: 1484
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0179015 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 16 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3239,17 +3239,17 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 120015ns
-Connection time: 1.05056e+07ns
+Generation time: 2.40708e+06ns
+Connection time: 1.0128e+07ns
 Starting A*
 1251
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.15569e+06ns
-Time taken: 0.0148167 seconds
-Path Nodes: 1511
-Path Distance: 1434
+Query time: 3.07189e+06ns
+Time taken: 0.0156417 seconds
+Path Nodes: 1247
+Path Distance: 1184
 Destroyed Planner
 Testing 32 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3265,17 +3265,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 131768ns
-Connection time: 8.27949e+06ns
+Generation time: 3.4744e+06ns
+Connection time: 8.55728e+06ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 3.18832e+06ns
-Time taken: 0.0116542 seconds
-Path Nodes: 1541
-Path Distance: 1462
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0151771 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 64 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3291,17 +3290,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 126969ns
-Connection time: 2.00738e+07ns
+Generation time: 1.50602e+07ns
+Connection time: 1.85683e+07ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 9.251e+07ns
-Time taken: 0.11279 seconds
-Path Nodes: 1522
-Path Distance: 1446
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0775725 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 128 Threads and 1,250 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3317,17 +3315,16 @@ Planning
 Sampling 1250 points
 Map width: 500
 Map height: 500
-Generation time: 139352ns
-Connection time: 4.59025e+07ns
+Generation time: 2.91329e+07ns
+Connection time: 2.57824e+07ns
 Starting A*
-1251
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 4.56414e+08ns
-Time taken: 0.502533 seconds
-Path Nodes: 1549
-Path Distance: 1470
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.141463 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 2,500 samples
@@ -3344,17 +3341,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 271410ns
-Connection time: 2.26216e+07ns
+Generation time: 260799ns
+Connection time: 2.22865e+07ns
 Starting A*
 2501
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.08769e+07ns
-Time taken: 0.0338019 seconds
-Path Nodes: 1102
-Path Distance: 1042
+Query time: 9.9093e+06ns
+Time taken: 0.0324874 seconds
+Path Nodes: 1091
+Path Distance: 1032
 Destroyed Planner
 Testing 2 Threads and 2,500 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3370,16 +3367,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 255370ns
-Connection time: 3.34951e+07ns
+Generation time: 881583ns
+Connection time: 3.88489e+07ns
 Starting A*
+2501
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0491058 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.71722e+07ns
+Time taken: 0.056945 seconds
+Path Nodes: 1149
+Path Distance: 1088
 Destroyed Planner
 Testing 4 Threads and 2,500 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3395,16 +3393,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 263114ns
-Connection time: 3.54011e+07ns
+Generation time: 2.1643e+06ns
+Connection time: 3.7938e+07ns
 Starting A*
+2501
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0634417 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 2.69992e+07ns
+Time taken: 0.0671345 seconds
+Path Nodes: 1077
+Path Distance: 1020
 Destroyed Planner
 Testing 8 Threads and 2,500 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3420,14 +3419,14 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 243168ns
-Connection time: 3.82241e+07ns
+Generation time: 4.07046e+06ns
+Connection time: 4.18478e+07ns
 Starting A*
 All threads exited
 No Path Found
 No path found. Planning Failed.
 Query failed
-Time taken: 0.0591698 seconds
+Time taken: 0.0459968 seconds
 Path Nodes: 0
 Path Distance: 0
 Destroyed Planner
@@ -3445,16 +3444,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 254829ns
-Connection time: 3.8594e+07ns
+Generation time: 3.90716e+06ns
+Connection time: 3.99328e+07ns
 Starting A*
+2501
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0535694 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.46497e+07ns
+Time taken: 0.0585282 seconds
+Path Nodes: 1113
+Path Distance: 1054
 Destroyed Planner
 Testing 32 Threads and 2,500 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3470,16 +3470,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 263395ns
-Connection time: 3.61899e+07ns
+Generation time: 5.89219e+06ns
+Connection time: 3.67776e+07ns
 Starting A*
+2501
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0461274 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 9.94727e+06ns
+Time taken: 0.0526631 seconds
+Path Nodes: 1143
+Path Distance: 1082
 Destroyed Planner
 Testing 64 Threads and 2,500 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3495,16 +3496,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 236985ns
-Connection time: 5.1077e+07ns
+Generation time: 1.83664e+07ns
+Connection time: 4.34866e+07ns
 Starting A*
+2501
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0719085 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 7.03366e+06ns
+Time taken: 0.0689495 seconds
+Path Nodes: 1158
+Path Distance: 1096
 Destroyed Planner
 Testing 128 Threads and 2,500 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3520,16 +3522,17 @@ Planning
 Sampling 2500 points
 Map width: 500
 Map height: 500
-Generation time: 248707ns
-Connection time: 6.96269e+07ns
+Generation time: 2.57063e+07ns
+Connection time: 5.06764e+07ns
 Starting A*
+2501
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.273463 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 2.23202e+08ns
+Time taken: 0.299661 seconds
+Path Nodes: 1150
+Path Distance: 1088
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 5,000 samples
@@ -3546,16 +3549,16 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 512924ns
-Connection time: 9.02845e+07ns
+Generation time: 533540ns
+Connection time: 9.0547e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.02456e+07ns
-Time taken: 0.121117 seconds
-Path Nodes: 1058
+Query time: 2.71299e+07ns
+Time taken: 0.11827 seconds
+Path Nodes: 1055
 Path Distance: 998
 Destroyed Planner
 Testing 2 Threads and 5,000 samples
@@ -3572,17 +3575,17 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 529926ns
-Connection time: 1.40586e+08ns
+Generation time: 2.62034e+06ns
+Connection time: 1.51695e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.74223e+07ns
-Time taken: 0.218591 seconds
-Path Nodes: 1061
-Path Distance: 1004
+Query time: 8.44392e+07ns
+Time taken: 0.238822 seconds
+Path Nodes: 1077
+Path Distance: 1020
 Destroyed Planner
 Testing 4 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3598,17 +3601,17 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 480333ns
-Connection time: 1.4293e+08ns
+Generation time: 3.85695e+06ns
+Connection time: 1.50302e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 9.75623e+07ns
-Time taken: 0.241021 seconds
-Path Nodes: 1058
-Path Distance: 1002
+Query time: 1.02927e+08ns
+Time taken: 0.257137 seconds
+Path Nodes: 1057
+Path Distance: 1000
 Destroyed Planner
 Testing 8 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3624,17 +3627,17 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 509989ns
-Connection time: 1.54086e+08ns
+Generation time: 4.91305e+06ns
+Connection time: 1.5023e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 8.313e+07ns
-Time taken: 0.23777 seconds
-Path Nodes: 1094
-Path Distance: 1034
+Query time: 8.63869e+07ns
+Time taken: 0.241588 seconds
+Path Nodes: 1070
+Path Distance: 1010
 Destroyed Planner
 Testing 16 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3650,16 +3653,16 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 496733ns
-Connection time: 1.57194e+08ns
+Generation time: 9.26383e+06ns
+Connection time: 1.81625e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.20142e+07ns
-Time taken: 0.199757 seconds
-Path Nodes: 1059
+Query time: 4.72925e+07ns
+Time taken: 0.238238 seconds
+Path Nodes: 1057
 Path Distance: 1002
 Destroyed Planner
 Testing 32 Threads and 5,000 samples
@@ -3676,17 +3679,17 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 482176ns
-Connection time: 1.31356e+08ns
+Generation time: 9.51731e+06ns
+Connection time: 1.42375e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.99046e+07ns
-Time taken: 0.161786 seconds
-Path Nodes: 1065
-Path Distance: 1010
+Query time: 3.36304e+07ns
+Time taken: 0.1856 seconds
+Path Nodes: 1054
+Path Distance: 998
 Destroyed Planner
 Testing 64 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3702,17 +3705,17 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 491303ns
-Connection time: 1.56132e+08ns
+Generation time: 1.88709e+07ns
+Connection time: 1.63247e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.57393e+07ns
-Time taken: 0.20244 seconds
-Path Nodes: 1060
-Path Distance: 1006
+Query time: 2.14864e+07ns
+Time taken: 0.203723 seconds
+Path Nodes: 1083
+Path Distance: 1028
 Destroyed Planner
 Testing 128 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/size/Small.txt
@@ -3728,17 +3731,17 @@ Planning
 Sampling 5000 points
 Map width: 500
 Map height: 500
-Generation time: 530978ns
-Connection time: 2.22429e+08ns
+Generation time: 3.24988e+07ns
+Connection time: 1.96547e+08ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 8.01932e+07ns
-Time taken: 0.303382 seconds
-Path Nodes: 1059
-Path Distance: 1006
+Query time: 1.18648e+08ns
+Time taken: 0.347851 seconds
+Path Nodes: 1090
+Path Distance: 1034
 Destroyed Planner
 --------------------------------------------------------------------------------
 Done.
@@ -3758,16 +3761,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 502273ns
-Connection time: 6.82253e+07ns
+Generation time: 511049ns
+Connection time: 6.8409e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0688969 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 4.12997e+06ns
+Time taken: 0.0730941 seconds
+Path Nodes: 2153
+Path Distance: 2038
 Destroyed Planner
 Testing 2 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3783,16 +3787,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 458232ns
-Connection time: 5.52798e+07ns
+Generation time: 1.76029e+06ns
+Connection time: 5.5684e+07ns
 Starting A*
+5001
+We have Reached the Goal!!!
 All threads exited
-No Path Found
-No path found. Planning Failed.
-Query failed
-Time taken: 0.0559881 seconds
-Path Nodes: 0
-Path Distance: 0
+Path Found
+Query time: 1.6371e+07ns
+Time taken: 0.0738626 seconds
+Path Nodes: 2612
+Path Distance: 2474
 Destroyed Planner
 Testing 4 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3808,17 +3813,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 438044ns
-Connection time: 3.99804e+07ns
+Generation time: 5.07888e+06ns
+Connection time: 4.08358e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.88769e+07ns
-Time taken: 0.0593339 seconds
-Path Nodes: 2417
-Path Distance: 2290
+Query time: 2.46754e+07ns
+Time taken: 0.0706285 seconds
+Path Nodes: 2520
+Path Distance: 2390
 Destroyed Planner
 Testing 8 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3834,17 +3839,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 437563ns
-Connection time: 4.14272e+07ns
+Generation time: 7.53423e+06ns
+Connection time: 3.90516e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.06998e+07ns
-Time taken: 0.0525927 seconds
-Path Nodes: 2323
-Path Distance: 2196
+Query time: 1.85012e+07ns
+Time taken: 0.0651252 seconds
+Path Nodes: 2613
+Path Distance: 2476
 Destroyed Planner
 Testing 16 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3860,17 +3865,16 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 440278ns
-Connection time: 4.26406e+07ns
+Generation time: 6.66607e+06ns
+Connection time: 4.2192e+07ns
 Starting A*
-5001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 1.22307e+07ns
-Time taken: 0.0553506 seconds
-Path Nodes: 2325
-Path Distance: 2206
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0489532 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 32 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3886,17 +3890,16 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 397507ns
-Connection time: 3.67603e+07ns
+Generation time: 8.69284e+06ns
+Connection time: 3.96042e+07ns
 Starting A*
-5001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 8.34619e+06ns
-Time taken: 0.0455451 seconds
-Path Nodes: 2420
-Path Distance: 2296
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0484156 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 64 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3912,17 +3915,16 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 445747ns
-Connection time: 5.07879e+07ns
+Generation time: 2.16223e+07ns
+Connection time: 4.83222e+07ns
 Starting A*
-5001
-We have Reached the Goal!!!
 All threads exited
-Path Found
-Query time: 5.32316e+07ns
-Time taken: 0.104617 seconds
-Path Nodes: 2382
-Path Distance: 2260
+No Path Found
+No path found. Planning Failed.
+Query failed
+Time taken: 0.0702845 seconds
+Path Nodes: 0
+Path Distance: 0
 Destroyed Planner
 Testing 128 Threads and 5,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -3938,17 +3940,17 @@ Planning
 Sampling 5000 points
 Map width: 1000
 Map height: 1000
-Generation time: 453873ns
-Connection time: 7.87174e+07ns
+Generation time: 3.29897e+07ns
+Connection time: 7.66638e+07ns
 Starting A*
 5001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.68003e+08ns
-Time taken: 0.447324 seconds
-Path Nodes: 2256
-Path Distance: 2142
+Query time: 5.27525e+08ns
+Time taken: 0.637559 seconds
+Path Nodes: 2484
+Path Distance: 2360
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 10,000 samples
@@ -3965,16 +3967,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.01808e+06ns
-Connection time: 2.77118e+08ns
+Generation time: 1.0584e+06ns
+Connection time: 2.77423e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 7.46286e+06ns
-Time taken: 0.285656 seconds
-Path Nodes: 2105
+Query time: 1.62988e+07ns
+Time taken: 0.294863 seconds
+Path Nodes: 2109
 Path Distance: 1998
 Destroyed Planner
 Testing 2 Threads and 10,000 samples
@@ -3991,17 +3993,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 918897ns
-Connection time: 2.06841e+08ns
+Generation time: 3.26053e+06ns
+Connection time: 2.06226e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 6.68495e+07ns
-Time taken: 0.27467 seconds
-Path Nodes: 2242
-Path Distance: 2122
+Query time: 1.41189e+07ns
+Time taken: 0.223661 seconds
+Path Nodes: 2174
+Path Distance: 2060
 Destroyed Planner
 Testing 4 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -4017,16 +4019,16 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 846330ns
-Connection time: 1.57421e+08ns
+Generation time: 8.73004e+06ns
+Connection time: 1.58733e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 5.73195e+07ns
-Time taken: 0.215629 seconds
-Path Nodes: 2111
+Query time: 6.104e+07ns
+Time taken: 0.228567 seconds
+Path Nodes: 2105
 Path Distance: 1998
 Destroyed Planner
 Testing 8 Threads and 10,000 samples
@@ -4043,17 +4045,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 851801ns
-Connection time: 1.48154e+08ns
+Generation time: 1.35232e+07ns
+Connection time: 1.50539e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.83792e+07ns
-Time taken: 0.197431 seconds
-Path Nodes: 2121
-Path Distance: 2008
+Query time: 3.19645e+07ns
+Time taken: 0.196071 seconds
+Path Nodes: 2112
+Path Distance: 2002
 Destroyed Planner
 Testing 16 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -4069,17 +4071,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 807448ns
-Connection time: 1.65633e+08ns
+Generation time: 1.18872e+07ns
+Connection time: 1.68523e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.8719e+07ns
-Time taken: 0.215199 seconds
-Path Nodes: 2137
-Path Distance: 2026
+Query time: 3.55243e+07ns
+Time taken: 0.215986 seconds
+Path Nodes: 2109
+Path Distance: 2002
 Destroyed Planner
 Testing 32 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -4095,17 +4097,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 852984ns
-Connection time: 1.43461e+08ns
+Generation time: 1.57649e+07ns
+Connection time: 1.42125e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.56489e+07ns
-Time taken: 0.16001 seconds
-Path Nodes: 2131
-Path Distance: 2022
+Query time: 2.03955e+07ns
+Time taken: 0.178342 seconds
+Path Nodes: 2130
+Path Distance: 2020
 Destroyed Planner
 Testing 64 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -4121,17 +4123,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 844477ns
-Connection time: 1.74782e+08ns
+Generation time: 1.81574e+07ns
+Connection time: 1.6495e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 4.29428e+07ns
-Time taken: 0.218649 seconds
-Path Nodes: 2165
-Path Distance: 2056
+Query time: 1.84485e+07ns
+Time taken: 0.201637 seconds
+Path Nodes: 2158
+Path Distance: 2048
 Destroyed Planner
 Testing 128 Threads and 10,000 samples
 Input file: /jet/home/ppareek/15418-Final-Project/maps/tests/density/Sparse.txt
@@ -4147,17 +4149,17 @@ Planning
 Sampling 10000 points
 Map width: 1000
 Map height: 1000
-Generation time: 863794ns
-Connection time: 2.19517e+08ns
+Generation time: 3.38489e+07ns
+Connection time: 2.02978e+08ns
 Starting A*
 10001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.14777e+08ns
-Time taken: 0.435499 seconds
-Path Nodes: 2191
-Path Distance: 2076
+Query time: 1.47552e+08ns
+Time taken: 0.384492 seconds
+Path Nodes: 2239
+Path Distance: 2126
 Destroyed Planner
 --------------------------------------------------------------------------------
 Testing 1 Threads and 20,000 samples
@@ -4174,15 +4176,15 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.84758e+06ns
-Connection time: 1.11016e+09ns
+Generation time: 2.02982e+06ns
+Connection time: 1.12096e+09ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 8.88564e+07ns
-Time taken: 1.20094 seconds
+Query time: 2.74289e+07ns
+Time taken: 1.15049 seconds
 Path Nodes: 2111
 Path Distance: 1998
 Destroyed Planner
@@ -4200,16 +4202,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.68958e+06ns
-Connection time: 8.52038e+08ns
+Generation time: 6.60146e+06ns
+Connection time: 8.1328e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.17931e+08ns
-Time taken: 1.07175 seconds
-Path Nodes: 2110
+Query time: 2.01812e+08ns
+Time taken: 1.02179 seconds
+Path Nodes: 2111
 Path Distance: 1998
 Destroyed Planner
 Testing 4 Threads and 20,000 samples
@@ -4226,15 +4228,15 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.58916e+06ns
-Connection time: 6.20776e+08ns
+Generation time: 1.88892e+07ns
+Connection time: 6.09356e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 3.77432e+08ns
-Time taken: 0.999877 seconds
+Query time: 3.80731e+08ns
+Time taken: 1.00907 seconds
 Path Nodes: 2105
 Path Distance: 1998
 Destroyed Planner
@@ -4252,16 +4254,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.67639e+06ns
-Connection time: 5.80119e+08ns
+Generation time: 2.54382e+07ns
+Connection time: 5.91989e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 2.6972e+08ns
-Time taken: 0.851583 seconds
-Path Nodes: 2109
+Query time: 2.74655e+08ns
+Time taken: 0.892163 seconds
+Path Nodes: 2106
 Path Distance: 1998
 Destroyed Planner
 Testing 16 Threads and 20,000 samples
@@ -4278,16 +4280,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.64433e+06ns
-Connection time: 6.37016e+08ns
+Generation time: 2.09901e+07ns
+Connection time: 6.19079e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.764e+08ns
-Time taken: 0.815123 seconds
-Path Nodes: 2110
+Query time: 1.72659e+08ns
+Time taken: 0.8128 seconds
+Path Nodes: 2108
 Path Distance: 1998
 Destroyed Planner
 Testing 32 Threads and 20,000 samples
@@ -4304,16 +4306,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.599e+06ns
-Connection time: 5.47879e+08ns
+Generation time: 2.04976e+07ns
+Connection time: 5.47124e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.11027e+08ns
-Time taken: 0.660572 seconds
-Path Nodes: 2106
+Query time: 1.01422e+08ns
+Time taken: 0.669157 seconds
+Path Nodes: 2107
 Path Distance: 1998
 Destroyed Planner
 Testing 64 Threads and 20,000 samples
@@ -4330,16 +4332,16 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.6362e+06ns
-Connection time: 5.99286e+08ns
+Generation time: 3.31664e+07ns
+Connection time: 6.06483e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.07721e+08ns
-Time taken: 0.70878 seconds
-Path Nodes: 2109
+Query time: 1.10498e+08ns
+Time taken: 0.75024 seconds
+Path Nodes: 2104
 Path Distance: 1998
 Destroyed Planner
 Testing 128 Threads and 20,000 samples
@@ -4356,17 +4358,17 @@ Planning
 Sampling 20000 points
 Map width: 1000
 Map height: 1000
-Generation time: 1.68404e+06ns
-Connection time: 8.05589e+08ns
+Generation time: 5.37095e+07ns
+Connection time: 6.64366e+08ns
 Starting A*
 20001
 We have Reached the Goal!!!
 All threads exited
 Path Found
-Query time: 1.06073e+08ns
-Time taken: 0.913489 seconds
-Path Nodes: 2106
-Path Distance: 2000
+Query time: 1.03791e+08ns
+Time taken: 0.82196 seconds
+Path Nodes: 2105
+Path Distance: 1998
 Destroyed Planner
 --------------------------------------------------------------------------------
 Done.
