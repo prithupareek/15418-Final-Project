@@ -64,3 +64,6 @@ We started parallelizing the generation phase and saw that the overhead of using
 **List the issues that concern you the most. Are there any remaining unknowns (things you simply don't know how to solve, or resource you don't know how to get) or is it just a matter of coding and doing the work? If you do not wish to put this information on a public web site you are welcome to email the staff directly.**
 
 We are not entirely sure if it makes sense to parallelize the generation phase, since our initial results points to the fact that there seems to be too much overhead with OpenMP. If we find that after more testing that the generaion phase is still slower in parallel, we will focus more on parallelizing the connection phase
+
+### Final Presentation Video
+[Presentation Video](https://youtu.be/4VZrQq1s3V4)
